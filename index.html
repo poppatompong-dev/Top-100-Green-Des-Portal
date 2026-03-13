@@ -183,6 +183,29 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
+        /* 2-column layout wrapper */
+        .main-content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+        @media (min-width: 1024px) {
+            .main-content-grid {
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+                gap: 32px;
+            }
+            .portal-card { height: 160px; }
+            .portal-card-year { font-size: 2rem; }
+            .portal-card-title { font-size: 1.1rem; margin-bottom: 4px; }
+            .portal-card-desc { font-size: 0.82rem; margin-bottom: 12px; line-clamp: 2; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+            .portal-card-content { padding: 16px 20px; }
+            .portal-card-subtitle { margin-bottom: 2px; }
+        }
+        @media (min-width: 1280px) {
+            .portal-card { height: 175px; }
+        }
         .portal-card::before {
             content: ''; position: absolute; inset: 0;
             background: rgba(0,0,0,0.38); z-index: 2;
@@ -351,11 +374,11 @@
         }
 
         /* ── Responsive ────────────────────────────────── */
-        @media (max-width: 1024px) {
+        @media (max-width: 1023px) {
             .portal-card { height: 400px; }
         }
         @media (max-width: 768px) {
-            .portal-card { height: 340px; }
+            .portal-card { height: 320px; }
             .portal-card-year { font-size: 2.2rem; }
             .portal-card-title { font-size: 1.05rem; }
             .portal-card-desc { font-size: 0.85rem; margin-bottom: 14px; }
@@ -363,7 +386,7 @@
             .coverflow-stage { min-height: 260px; }
         }
         @media (max-width: 480px) {
-            .portal-card { height: 300px; }
+            .portal-card { height: 280px; }
             .portal-card-year { font-size: 1.9rem; }
             .cf-arrow { width: 34px; height: 34px; font-size: 1rem; }
         }
@@ -428,111 +451,100 @@
                     </p>
                 </div>
 
-                <!-- Portal Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-up" style="animation-delay:0.2s">
+                <!-- 2-Column Grid: cards left, coverflow right -->
+                <div class="main-content-grid fade-up" style="animation-delay:0.2s">
 
-                    <!-- Card 2024 -->
-                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
-                        <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
-                        <div class="portal-card-content">
-                            <div class="portal-card-year">2024</div>
-                            <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
-                            <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
-                            <div class="portal-card-desc" data-i18n="c1-desc">
-                                อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล
+                    <!-- LEFT: Portal Cards (stacked 3 rows on desktop, horizontal on mobile) -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
+
+                        <!-- Card 2024 -->
+                        <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
+                            <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
+                            <div class="portal-card-content">
+                                <div class="portal-card-year">2024</div>
+                                <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
+                                <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
+                                <div class="portal-card-desc" data-i18n="c1-desc">อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล</div>
+                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                             </div>
-                            <span class="portal-card-cta">
-                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
-                            </span>
-                        </div>
-                    </a>
+                        </a>
 
-                    <!-- Card 2025/1 -->
-                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
-                        <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="portal-card-content">
-                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
-                            <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
-                            <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
-                            <div class="portal-card-desc" data-i18n="c2-desc">
-                                ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง
+                        <!-- Card 2025/1 -->
+                        <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
+                            <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                            <div class="portal-card-content">
+                                <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
+                                <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
+                                <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
+                                <div class="portal-card-desc" data-i18n="c2-desc">ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง</div>
+                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                             </div>
-                            <span class="portal-card-cta">
-                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
-                            </span>
-                        </div>
-                    </a>
+                        </a>
 
-                    <!-- Card 2025/2 -->
-                    <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
-                        <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
-                        <div class="portal-card-content">
-                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
-                            <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
-                            <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
-                            <div class="portal-card-desc" data-i18n="c3-desc">
-                                ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ
+                        <!-- Card 2025/2 -->
+                        <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
+                            <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                            <div class="portal-card-content">
+                                <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
+                                <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
+                                <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
+                                <div class="portal-card-desc" data-i18n="c3-desc">ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ</div>
+                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                             </div>
-                            <span class="portal-card-cta">
-                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Coverflow Section -->
-                <div class="fade-up" style="animation-delay:0.4s">
-                    <div class="text-center mb-4">
-                        <h2 class="text-xl md:text-2xl font-bold" style="color:var(--section-heading)">
-                            <span class="text-green" data-i18n="gallery-title">เครือข่ายสีเขียว</span>
-                            <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
-                        </h2>
-                        <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="gallery-sub">กดที่ภาพตรงกลางเพื่อดูขนาดใหญ่ · กดภาพข้างๆ เพื่อเลื่อน</p>
+                        </a>
                     </div>
 
-                    <!-- Coverflow -->
-                    <div class="coverflow-wrap" role="region" aria-label="แกลเลอรีภาพเครือข่ายสีเขียว">
-                        <div class="coverflow-stage" id="cfStage">
-                            <div class="coverflow-slide" data-img="sticker/533075.jpg" data-label="เครือข่ายสีเขียว 1" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 1">
-                                <img src="sticker/533075.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 1" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533077.jpg" data-label="เครือข่ายสีเขียว 2" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 2">
-                                <img src="sticker/533077.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 2" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533078.jpg" data-label="เครือข่ายสีเขียว 3" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 3">
-                                <img src="sticker/533078.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 3" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533080.jpg" data-label="เครือข่ายสีเขียว 4" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 4">
-                                <img src="sticker/533080.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 4" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533081.jpg" data-label="เครือข่ายสีเขียว 5" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 5">
-                                <img src="sticker/533081.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 5" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533082.jpg" data-label="เครือข่ายสีเขียว 6" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 6">
-                                <img src="sticker/533082.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 6" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
-                            <div class="coverflow-slide" data-img="sticker/533083.jpg" data-label="เครือข่ายสีเขียว 7" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 7">
-                                <img src="sticker/533083.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 7" loading="lazy" decoding="async">
-                                <span class="cf-badge">กดดูภาพใหญ่</span>
-                            </div>
+                    <!-- RIGHT: Coverflow -->
+                    <div>
+                        <div class="text-center mb-3">
+                            <h2 class="text-lg lg:text-xl font-bold" style="color:var(--section-heading)">
+                                <span class="text-green" data-i18n="gallery-title">เครือข่ายสีเขียว</span>
+                                <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
+                            </h2>
+                            <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="gallery-sub">กดที่ภาพตรงกลางเพื่อดูขนาดใหญ่ · กดภาพข้างๆ เพื่อเลื่อน</p>
                         </div>
-                        <!-- Nav dots + arrows -->
-                        <div class="flex items-center justify-center gap-3 mt-5" role="group" aria-label="ควบคุมแกลเลอรี">
-                            <button id="cfPrev" class="cf-arrow" aria-label="ภาพก่อนหน้า">&#8249;</button>
-                            <div id="cfDots" class="flex gap-2" role="tablist" aria-label="เลือกภาพ"></div>
-                            <button id="cfNext" class="cf-arrow" aria-label="ภาพถัดไป">&#8250;</button>
+                        <div class="coverflow-wrap" role="region" aria-label="แกลเลอรีภาพเครือข่ายสีเขียว">
+                            <div class="coverflow-stage" id="cfStage">
+                                <div class="coverflow-slide" data-img="sticker/533075.jpg" data-label="เครือข่ายสีเขียว 1" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 1">
+                                    <img src="sticker/533075.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 1" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533077.jpg" data-label="เครือข่ายสีเขียว 2" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 2">
+                                    <img src="sticker/533077.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 2" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533078.jpg" data-label="เครือข่ายสีเขียว 3" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 3">
+                                    <img src="sticker/533078.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 3" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533080.jpg" data-label="เครือข่ายสีเขียว 4" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 4">
+                                    <img src="sticker/533080.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 4" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533081.jpg" data-label="เครือข่ายสีเขียว 5" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 5">
+                                    <img src="sticker/533081.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 5" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533082.jpg" data-label="เครือข่ายสีเขียว 6" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 6">
+                                    <img src="sticker/533082.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 6" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                                <div class="coverflow-slide" data-img="sticker/533083.jpg" data-label="เครือข่ายสีเขียว 7" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 7">
+                                    <img src="sticker/533083.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 7" loading="lazy" decoding="async">
+                                    <span class="cf-badge">กดดูภาพใหญ่</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center gap-3 mt-4" role="group" aria-label="ควบคุมแกลเลอรี">
+                                <button id="cfPrev" class="cf-arrow" aria-label="ภาพก่อนหน้า">&#8249;</button>
+                                <div id="cfDots" class="flex gap-2" role="tablist" aria-label="เลือกภาพ"></div>
+                                <button id="cfNext" class="cf-arrow" aria-label="ภาพถัดไป">&#8250;</button>
+                            </div>
+                            <p class="text-center text-xs mt-1" style="color:var(--text-muted)">
+                                <span id="cfCounter">1</span> / <span id="cfTotal">7</span>
+                            </p>
                         </div>
-                        <!-- Progress indicator -->
-                        <p class="text-center text-xs mt-2" style="color:var(--text-muted)">
-                            <span id="cfCounter">1</span> / <span id="cfTotal">7</span>
-                        </p>
                     </div>
+
                 </div>
 
                 <!-- Footer -->
