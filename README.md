@@ -1,7 +1,7 @@
-# 🌿 Top 100 Green Destinations — Portal Page
+# 🌿 Top 100 Green Destinations — Portal Hub
 ### เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality
 
-หน้า Landing Page สำหรับประกาศเกียรติคุณรางวัล **Top 100 Green Destinations** ที่เทศบาลเมืองอุทัยธานีได้รับต่อเนื่อง **2 ปีซ้อน (2024–2025)** ทำหน้าที่เป็น **Portal** เชื่อมโยงไปยังเว็บไซต์หลักทั้งสองแห่ง
+**Single-page Portal Hub** ที่นำทางไปยัง Green Destinations Stories ของเทศบาลเมืองอุทัยธานี สำหรับปี 2024, 2025 และ 2026
 
 ---
 
@@ -13,17 +13,16 @@
 | **Fireflies Canvas** | Particle system สร้างบรรยากาศป่าไม้ที่มีชีวิต |
 | **Custom Cursor** | Cursor ที่ตอบสนองต่อ Interactive elements |
 | **Vanilla Tilt.js** | 3D tilt effect บน Portal Cards |
-| **Scroll Reveal** | Animation เมื่อ scroll ถึง elements |
-| **Counter Animation** | ตัวเลขนับขึ้นแบบ Ease-out cubic |
-| **Scroll Progress Bar** | แถบความคืบหน้าการเลื่อนหน้า |
-| **Lightbox** | ขยายภาพตราสัญลักษณ์รางวัล |
-| **Sticker Ribbon** | แถบภาพร้านค้าสีเขียวแบบ Auto-scroll |
+| **Scroll Progress Bar** | แถบความคืบหน้าการเลื่อน |
 | **Responsive Design** | Mobile-first, รองรับทุกหน้าจอ |
 
 ## 🔗 Portal Links
 
-- **2024 Edition** → [uthai-top100greendes2024.netlify.app](https://uthai-top100greendes2024.netlify.app)
-- **2025 Edition** → [uthai-top100greendes2025.netlify.app](https://uthai-top100greendes2025.netlify.app)
+| ปี | ชื่อ | URL |
+|---|---|---|
+| **2024** | The Beginning | [uthai-top100greendes2024.netlify.app](https://uthai-top100greendes2024.netlify.app) |
+| **2025** | New Chapter | [uthai-top100greendes2025.netlify.app](https://uthai-top100greendes2025.netlify.app) |
+| **2026** | Future Vision | [uthai-top100greendes2026.netlify.app](https://uthai-top100greendes2026.netlify.app) |
 
 ## 🛠️ Tech Stack
 
@@ -37,25 +36,61 @@
 
 ```
 Top-100-Green-Des-Portal/
-├── index.html          # Main Landing Page
-├── Award2024.jpg       # Green Destinations Top 100 Badge 2024
-├── Award2025.jpg       # Green Destinations Top 100 Badge 2025
+├── index.html          # Main Portal Hub (Single Page)
+├── Award2024.jpg       # Green Destinations Badge 2024
+├── Award2025.jpg       # Green Destinations Badge 2025
 ├── logo.jpg            # Partner organization logos
 ├── contents/
-│   ├── D1.jpg          # Aerial view of Uthai Thani
-│   ├── market-old-town.jpg  # Sakae Krang old market
-│   ├── Per01.jpg       # Raft community lifestyle
-│   ├── 2024.jpg        # 2024 award photo
-│   └── 2025.jpg        # 2025 award photo
-└── sticker/
-    └── *.jpg           # Green local shop photos
+│   ├── 2024.jpg        # 2024 portal background
+│   ├── 2025.jpg        # 2025 portal background
+│   └── D1.jpg          # 2026 portal background (Aerial view)
+├── sticker/            # (Optional) Green shop photos
+├── README.md           # This file
+└── netlify.toml        # Netlify deployment config
 ```
 
-## 🚀 How to View
+## 🚀 How to Deploy
 
-เปิดไฟล์ `index.html` ด้วย browser สมัยใหม่ หรือ deploy ผ่าน Netlify/GitHub Pages
+### Option 1: Netlify (Recommended)
+1. Go to [netlify.com](https://netlify.com)
+2. Click **Add new site** → **Import from Git**
+3. Select repository: `poppatompong-dev/Top-100-Green-Des-Portal`
+4. Build settings: Leave empty (static site)
+5. Click **Deploy site**
+
+### Option 2: GitHub Pages
+1. Push to GitHub
+2. Go to repository **Settings** → **Pages**
+3. Select **Deploy from a branch** → **master**
+4. Wait for deployment
+
+### Option 3: Local Testing
+```bash
+# Open index.html directly in browser
+open index.html
+
+# Or use a local server
+python3 -m http.server 8000
+# Visit: http://localhost:8000
+```
+
+## 🎨 Design Highlights
+
+- **Dark Forest Gradient**: `#0a1a0a` to `#0f2e1a`
+- **Glassmorphism Cards**: 5% white opacity + 10px blur
+- **Green Accent**: `#22c55e` with glow effects
+- **Gold Accent**: `#fbbf24` for highlights
+- **Typography**: Prompt (Thai) + Playfair Display (English)
+
+## 📱 Responsive Breakpoints
+
+- **Mobile**: < 768px (1 column)
+- **Tablet**: 768px - 1024px (2-3 columns)
+- **Desktop**: > 1024px (3 columns)
 
 ---
 
 *พัฒนาโดย นักวิทยาการคอมพิวเตอร์ เทศบาลเมืองอุทัยธานี*  
 *Developed by Computer Scientist, Uthai Thani Town Municipality*
+
+**Last Updated:** March 13, 2026
