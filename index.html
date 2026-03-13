@@ -1,475 +1,831 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="th" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>อุทัยธานี · Top 100 Green Destinations Hub</title>
-    <meta name="description" content="Portal to Green Destinations Stories - Uthai Thani Municipality">
-    
+    <title>อุทัยธานี · Top 100 Green Destinations | เมืองสีเขียวระดับโลก</title>
+    <meta name="description" content="เทศบาลเมืองอุทัยธานี ได้รับการรับรอง Top 100 Green Destinations จาก Green Destinations Foundation ประเทศเนเธอร์แลนด์ ปี 2024 และ 2025">
+    <meta name="keywords" content="อุทัยธานี, Green Destinations, เที่ยวสีเขียว, ท่องเที่ยวยั่งยืน, Uthai Thani, sustainable tourism">
+    <meta name="author" content="เทศบาลเมืองอุทัยธานี">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0a1a0a">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="อุทัยธานี · Top 100 Green Destinations Hub">
+    <meta property="og:description" content="พอร์ทัลเรื่องราวความสำเร็จด้านสิ่งแวดล้อม เทศบาลเมืองอุทัยธานี">
+    <meta property="og:locale" content="th_TH">
+    <meta property="og:locale:alternate" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="อุทัยธานี · Top 100 Green Destinations Hub">
+    <meta name="twitter:description" content="พอร์ทัลเรื่องราวความสำเร็จด้านสิ่งแวดล้อม เทศบาลเมืองอุทัยธานี">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"GovernmentOrganization","name":"เทศบาลเมืองอุทัยธานี","alternateName":"Uthai Thani Town Municipality","url":"https://uthai-top100greendes2025-2.netlify.app/","description":"ได้รับการรับรอง Top 100 Green Destinations จาก Green Destinations Foundation","address":{"@type":"PostalAddress","addressLocality":"อุทัยธานี","addressCountry":"TH"}}
+    </script>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
+    <!-- Google Fonts with font-display:swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     <!-- Vanilla Tilt -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ── CI Color Variables ────────────────────────────────── */
+        :root {
+            --ci-green: #22c55e;
+            --ci-green-light: #86efac;
+            --ci-green-dark: #15803d;
+            --ci-gold: #f59e0b;
+            --ci-gold-light: #fcd34d;
+            --ci-purple: #7c3aed;
+            --ci-purple-light: #a78bfa;
+            --ci-white: #ffffff;
         }
 
-        html {
-            scroll-behavior: smooth;
+        /* ── Dark Theme (default) ────────────────────────────────── */
+        [data-theme="dark"] {
+            --bg-primary: linear-gradient(135deg, #0a1a0a 0%, #0f2e1a 50%, #0a1a0a 100%);
+            --bg-card: rgba(255,255,255,0.05);
+            --bg-nav: rgba(10, 26, 10, 0.85);
+            --text-primary: #f0fdf4;
+            --text-secondary: #bbf7d0;
+            --text-muted: #6b7280;
+            --border-color: rgba(255,255,255,0.1);
+            --card-overlay: rgba(10, 26, 10, 0.88);
+            --card-shadow: rgba(34,197,94,0.15);
+            --toggle-bg: rgba(255,255,255,0.08);
+            --toggle-border: rgba(255,255,255,0.15);
+            --badge-bg: rgba(124,58,237,0.15);
+            --badge-border: rgba(124,58,237,0.4);
+            --section-heading: #f0fdf4;
         }
+
+        /* ── Light Theme ────────────────────────────────── */
+        [data-theme="light"] {
+            --bg-primary: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0f9ff 100%);
+            --bg-card: rgba(255,255,255,0.75);
+            --bg-nav: rgba(255,255,255,0.92);
+            --text-primary: #052e16;
+            --text-secondary: #166534;
+            --text-muted: #6b7280;
+            --border-color: rgba(34,197,94,0.2);
+            --card-overlay: rgba(5, 46, 22, 0.82);
+            --card-shadow: rgba(124,58,237,0.12);
+            --toggle-bg: rgba(34,197,94,0.08);
+            --toggle-border: rgba(34,197,94,0.3);
+            --badge-bg: rgba(245,158,11,0.12);
+            --badge-border: rgba(245,158,11,0.4);
+            --section-heading: #052e16;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Prompt', sans-serif;
-            background: linear-gradient(135deg, #0a1a0a 0%, #0f2e1a 50%, #0a1a0a 100%);
-            color: #e0e0e0;
+            background: var(--bg-primary);
+            color: var(--text-primary);
             min-height: 100vh;
             overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
         }
 
         /* ── Fireflies Canvas ────────────────────────────────── */
         #fireflies-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
+            position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none; z-index: 0;
         }
 
         /* ── Custom Cursor ────────────────────────────────── */
         .cursor-dot {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
+            position: fixed; width: 8px; height: 8px;
+            background: var(--ci-green); border-radius: 50%;
+            pointer-events: none; z-index: 9999;
+            box-shadow: 0 0 10px rgba(34,197,94,0.6);
         }
-
         .cursor-outline {
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            border: 2px solid rgba(34, 197, 94, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
+            position: fixed; width: 30px; height: 30px;
+            border: 2px solid rgba(34,197,94,0.5); border-radius: 50%;
+            pointer-events: none; z-index: 9998;
             transition: all 0.1s ease-out;
         }
 
-        /* ── Content ────────────────────────────────── */
-        .content {
-            position: relative;
-            z-index: 1;
-        }
+        /* ── Content Layer ────────────────────────────────── */
+        .content { position: relative; z-index: 1; }
 
-        /* ── Scroll Progress Bar ────────────────────────────────── */
+        /* ── Scroll Progress ────────────────────────────────── */
         .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #22c55e, #fbbf24, #22c55e);
-            z-index: 1000;
-            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+            position: fixed; top: 0; left: 0; height: 3px;
+            background: linear-gradient(90deg, var(--ci-green), var(--ci-gold), var(--ci-purple));
+            z-index: 1000; box-shadow: 0 0 10px rgba(34,197,94,0.5);
         }
 
-        /* ── Glass Morphism ────────────────────────────────── */
+        /* ── Glass ────────────────────────────────── */
         .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--bg-card);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-color);
         }
+
+        /* ── Nav ────────────────────────────────── */
+        .site-nav {
+            background: var(--bg-nav);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.4s ease;
+        }
+
+        /* ── Toggle Controls ────────────────────────────────── */
+        .ctrl-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 6px 14px; border-radius: 20px; cursor: pointer;
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
+            background: var(--toggle-bg); border: 1px solid var(--toggle-border);
+            color: var(--text-primary); transition: all 0.25s ease;
+            user-select: none;
+        }
+        .ctrl-btn:hover { background: rgba(34,197,94,0.15); border-color: var(--ci-green); color: var(--ci-green); }
 
         /* ── Text Gradients ────────────────────────────────── */
-        .text-gradient-green {
-            background: linear-gradient(135deg, #22c55e, #86efac);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .text-green {
+            background: linear-gradient(135deg, var(--ci-green), var(--ci-green-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .text-gold {
+            background: linear-gradient(135deg, var(--ci-gold), var(--ci-gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .text-purple {
+            background: linear-gradient(135deg, var(--ci-purple), var(--ci-purple-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
 
-        .text-gradient-gold {
-            background: linear-gradient(135deg, #fbbf24, #fcd34d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        /* ── Award Badge ────────────────────────────────── */
+        .award-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 16px; border-radius: 20px;
+            background: var(--badge-bg); border: 1px solid var(--badge-border);
+            font-size: 0.78rem; font-weight: 600; color: var(--ci-purple-light);
+            letter-spacing: 0.05em; text-transform: uppercase;
         }
+        [data-theme="light"] .award-badge { color: var(--ci-purple); }
 
         /* ── Portal Cards ────────────────────────────────── */
         .portal-card {
-            position: relative;
-            height: 400px;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
+            position: relative; height: 440px; border-radius: 24px;
+            overflow: hidden; cursor: pointer;
             transform-style: preserve-3d;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
-
         .portal-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 2;
-            transition: all 0.3s ease;
+            content: ''; position: absolute; inset: 0;
+            background: rgba(0,0,0,0.38); z-index: 2;
+            transition: all 0.4s ease;
         }
-
-        .portal-card:hover::before {
-            background: rgba(0, 0, 0, 0.1);
-        }
+        .portal-card:hover { border-color: rgba(34,197,94,0.4); box-shadow: 0 12px 48px var(--card-shadow); }
+        .portal-card:hover::before { background: rgba(0,0,0,0.12); }
 
         .portal-card-content {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 30px;
-            z-index: 3;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+            position: absolute; inset: 0; z-index: 3;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            padding: 32px 28px;
+            background: linear-gradient(180deg, transparent 20%, var(--card-overlay) 100%);
         }
-
         .portal-card-year {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #22c55e, #fbbf24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, var(--ci-green), var(--ci-gold));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
+        .portal-card-subtitle {
+            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--ci-purple-light);
+            margin-bottom: 8px;
+        }
         .portal-card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #fff;
+            font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; color: #ffffff;
         }
-
         .portal-card-desc {
-            font-size: 0.95rem;
-            color: #d0d0d0;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            font-size: 0.92rem; color: rgba(255,255,255,0.75);
+            margin-bottom: 20px; line-height: 1.6;
+        }
+        .portal-card-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 22px; border-radius: 12px; font-weight: 700;
+            font-size: 0.9rem; transition: all 0.3s ease; width: fit-content;
+            background: rgba(34,197,94,0.18); border: 1px solid rgba(34,197,94,0.55);
+            color: #4ade80; text-decoration: none;
+        }
+        .portal-card-cta:hover { background: rgba(34,197,94,0.35); border-color: var(--ci-green); color: #fff; gap: 12px; }
+
+        /* ── Coverflow ────────────────────────────────── */
+        .coverflow-wrap {
+            position: relative; width: 100%;
+            padding: 24px 0 36px;
+        }
+        .coverflow-stage {
+            perspective: 1200px;
+            display: flex; align-items: center; justify-content: center;
+            height: clamp(260px, 40vw, 380px);
+            position: relative;
+        }
+        .coverflow-slide {
+            position: absolute;
+            width: clamp(160px, 26vw, 260px);
+            height: clamp(200px, 33vw, 320px);
+            border-radius: 20px; overflow: hidden;
+            cursor: pointer;
+            pointer-events: none;
+            transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
+                        opacity 0.55s cubic-bezier(0.4,0,0.2,1),
+                        box-shadow 0.55s ease,
+                        border-color 0.55s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.3);
+            will-change: transform, opacity;
+            transform: translateX(0) scale(0.5);
+            opacity: 0;
+        }
+        .coverflow-slide img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.4s ease;
+            pointer-events: none;
+        }
+        .coverflow-slide.cf-active:hover img { transform: scale(1.06); }
+
+        .coverflow-slide.cf-active {
+            transform: translateX(0) scale(1) rotateY(0deg);
+            opacity: 1;
+            z-index: 10;
+            pointer-events: auto;
+            box-shadow: 0 24px 64px rgba(34,197,94,0.35), 0 0 0 2px var(--ci-green);
+            border-color: var(--ci-green);
+        }
+        .coverflow-slide.cf-prev1 {
+            transform: translateX(-68%) scale(0.84) rotateY(22deg);
+            opacity: 0.72; z-index: 7; pointer-events: auto;
+        }
+        .coverflow-slide.cf-next1 {
+            transform: translateX(68%) scale(0.84) rotateY(-22deg);
+            opacity: 0.72; z-index: 7; pointer-events: auto;
+        }
+        .coverflow-slide.cf-prev2 {
+            transform: translateX(-120%) scale(0.66) rotateY(36deg);
+            opacity: 0.38; z-index: 4; pointer-events: auto;
+        }
+        .coverflow-slide.cf-next2 {
+            transform: translateX(120%) scale(0.66) rotateY(-36deg);
+            opacity: 0.38; z-index: 4; pointer-events: auto;
+        }
+        .coverflow-slide.cf-prev3 {
+            transform: translateX(-160%) scale(0.5) rotateY(48deg);
+            opacity: 0.12; z-index: 1; pointer-events: auto;
+        }
+        .coverflow-slide.cf-next3 {
+            transform: translateX(160%) scale(0.5) rotateY(-48deg);
+            opacity: 0.12; z-index: 1; pointer-events: auto;
+        }
+        .coverflow-slide.cf-hidden {
+            opacity: 0; pointer-events: none; z-index: 0;
+            transform: translateX(0) scale(0.3);
+        }
+        /* Active badge on slide */
+        .cf-badge {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            background: rgba(34,197,94,0.85); color: #fff;
+            font-size: 0.68rem; font-weight: 700; padding: 3px 10px;
+            border-radius: 10px; letter-spacing: 0.04em; white-space: nowrap;
+            opacity: 0; transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        .coverflow-slide.cf-active .cf-badge { opacity: 1; }
+        /* Dot nav */
+        .cf-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--text-muted); border: none; cursor: pointer; padding: 0;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .cf-dot.active { background: var(--ci-green); transform: scale(1.5); }
+        /* Arrow buttons */
+        .cf-arrow {
+            background: var(--toggle-bg); border: 1px solid var(--toggle-border);
+            color: var(--text-primary); border-radius: 50%; width: 40px; height: 40px;
+            font-size: 1.2rem; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; transition: all 0.25s ease; flex-shrink: 0;
+            padding: 0;
+        }
+        .cf-arrow:hover:not(:disabled) { background: rgba(34,197,94,0.2); border-color: var(--ci-green); color: var(--ci-green); }
+        .cf-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
+        @media (prefers-reduced-motion: reduce) {
+            .coverflow-slide { transition: none; }
         }
 
-        .portal-card-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: rgba(34, 197, 94, 0.2);
-            border: 1px solid #22c55e;
-            border-radius: 8px;
-            color: #22c55e;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+        /* ── Lightbox ────────────────────────────────── */
+        #lightbox {
+            position: fixed; inset: 0; z-index: 8000;
+            background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
         }
-
-        .portal-card-link:hover {
-            background: rgba(34, 197, 94, 0.4);
-            transform: translateX(5px);
+        #lightbox.open { opacity: 1; pointer-events: all; }
+        #lightbox img { max-width: 88vw; max-height: 88vh; border-radius: 16px; box-shadow: 0 0 80px rgba(34,197,94,0.2); }
+        #lightbox-close {
+            position: absolute; top: 24px; right: 28px;
+            font-size: 2rem; color: #fff; cursor: pointer; line-height: 1;
         }
 
         /* ── Animations ────────────────────────────────── */
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(28px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-
-        .animate-fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+        .fade-up { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
+        @media (prefers-reduced-motion: reduce) {
+            .fade-up { animation: none; opacity: 1; }
         }
 
         /* ── Responsive ────────────────────────────────── */
+        @media (max-width: 1024px) {
+            .portal-card { height: 400px; }
+        }
         @media (max-width: 768px) {
-            .portal-card {
-                height: 300px;
-            }
-
-            .portal-card-year {
-                font-size: 2.5rem;
-            }
-
-            .portal-card-title {
-                font-size: 1.1rem;
-            }
-
-            .portal-card-desc {
-                font-size: 0.85rem;
-            }
+            .portal-card { height: 340px; }
+            .portal-card-year { font-size: 2.2rem; }
+            .portal-card-title { font-size: 1.05rem; }
+            .portal-card-desc { font-size: 0.85rem; margin-bottom: 14px; }
+            .portal-card-content { padding: 20px 18px; }
+            .coverflow-stage { min-height: 260px; }
+        }
+        @media (max-width: 480px) {
+            .portal-card { height: 300px; }
+            .portal-card-year { font-size: 1.9rem; }
+            .cf-arrow { width: 34px; height: 34px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
+    <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Fireflies Canvas -->
+    <!-- Fireflies -->
     <canvas id="fireflies-canvas"></canvas>
+    <!-- Custom Cursor (hidden on touch devices) -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-outline" id="cursorOutline" aria-hidden="true"></div>
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="ภาพขยาย">
+        <button id="lightbox-close" aria-label="ปิดภาพ">&#x2715;</button>
+        <img id="lightbox-img" src="" alt="" loading="lazy">
+    </div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-outline" id="cursorOutline"></div>
-
-    <!-- Main Content -->
     <div class="content">
-        <!-- Navbar -->
-        <nav class="glass fixed top-0 left-0 right-0 z-50 border-b border-white/10">
-            <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-                <div class="flex items-center gap-3">
-                    <img src="logo.jpg" alt="Uthai Thani" class="h-10 rounded-lg">
-                    <div>
-                        <div class="text-sm font-bold text-green-400">UTHAI THANI</div>
-                        <div class="text-xs text-gray-400">Green Destinations Hub</div>
+        <!-- ── Navbar ── -->
+        <nav class="site-nav fixed top-0 left-0 right-0 z-50" role="navigation" aria-label="เมนูหลัก">
+            <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
+                <!-- Brand -->
+                <div class="flex items-center gap-3 min-w-0">
+                    <img src="logo.jpg" alt="ตราสัญลักษณ์เทศบาลเมืองอุทัยธานี" class="h-9 rounded-lg flex-shrink-0" width="36" height="36">
+                    <div class="min-w-0">
+                        <div class="text-sm font-bold" style="color:var(--ci-green)">เทศบาลเมืองอุทัยธานี</div>
+                        <div class="text-xs hidden sm:block" style="color:var(--text-muted)" data-i18n="nav-sub">Green Destinations Hub</div>
                     </div>
                 </div>
-                <div class="text-xs text-gray-400 hidden sm:block">
-                    🌿 Top 100 Green Destinations
+                <!-- Controls -->
+                <div class="flex items-center gap-2 flex-shrink-0">
+                    <button class="ctrl-btn" id="langBtn" aria-label="เปลี่ยนภาษา">
+                        <span id="langIcon" aria-hidden="true">🇬🇧</span>
+                        <span id="langLabel">EN</span>
+                    </button>
+                    <button class="ctrl-btn" id="themeBtn" aria-label="เปลี่ยนธีม">
+                        <span id="themeIcon" aria-hidden="true">☀️</span>
+                        <span id="themeLabel" data-i18n="theme-light">สว่าง</span>
+                    </button>
                 </div>
             </div>
         </nav>
 
-        <!-- Hero Section -->
-        <section class="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Main Title -->
-                <div class="mb-8 animate-fade-in-up" style="animation-delay: 0s">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-4">
-                        <span class="text-gradient-green">Green</span>
-                        <br>
-                        <span class="text-gradient-gold">Destinations</span>
+        <!-- ── Hero ── -->
+        <section class="min-h-screen flex flex-col items-center justify-center px-5 pt-20 pb-8">
+            <div class="max-w-6xl w-full mx-auto">
+
+                <!-- Title block -->
+                <div class="text-center mb-6 fade-up" style="animation-delay:0s">
+                    <div class="award-badge mb-5 mx-auto w-fit" data-i18n="badge" role="note">🏆 Top 100 Green Destinations · การรับรองระดับโลก</div>
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-3">
+                        <span class="text-green" data-i18n="h1-line1">สถานที่ท่องเที่ยว</span><br>
+                        <span class="text-gold" data-i18n="h1-line2">สีเขียวระดับโลก</span>
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-300 font-light">
-                        เมืองเก่าอุทัยธานี · Uthai Thani, Thailand
+                    <p class="text-base md:text-lg font-light mt-3" style="color:var(--text-secondary)" data-i18n="hero-sub">
+                        เมืองเก่าอุทัยธานี · เทศบาลเมืองอุทัยธานี ประเทศไทย
+                    </p>
+                    <p class="text-sm mt-2 max-w-xl mx-auto" style="color:var(--text-muted)" data-i18n="hero-desc">
+                        ผลงานความสำเร็จด้านการพัฒนาอย่างยั่งยืน ได้รับการรับรองจาก Green Destinations Foundation ประเทศเนเธอร์แลนด์
                     </p>
                 </div>
 
-                <!-- Subtitle -->
-                <div class="mb-16 animate-fade-in-up" style="animation-delay: 0.2s">
-                    <p class="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                        เลือกเรื่องราวที่คุณสนใจ
-                        <br>
-                        <span class="text-sm text-gray-500">Select your journey below</span>
-                    </p>
-                </div>
+                <!-- Portal Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-up" style="animation-delay:0.2s">
 
-                <!-- Portal Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 animate-fade-in-up" style="animation-delay: 0.4s">
-                    <!-- 2024 Card -->
-                    <a href="https://uthai-top100greendes2024.netlify.app" class="portal-card glass" data-tilt>
-                        <img src="contents/2024.jpg" alt="2024" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- Card 2024 -->
+                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
+                        <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
                         <div class="portal-card-content">
                             <div class="portal-card-year">2024</div>
-                            <div class="portal-card-title">The Beginning</div>
-                            <div class="portal-card-desc">
-                                จุดเริ่มต้นแห่งความสำเร็จ
+                            <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
+                            <div class="portal-card-desc" data-i18n="c1-desc">
+                                อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล
                             </div>
-                            <div class="portal-card-link">
-                                <span>Explore</span>
-                                <span>→</span>
-                            </div>
+                            <span class="portal-card-cta">
+                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
+                            </span>
                         </div>
                     </a>
 
-                    <!-- 2025 Card -->
-                    <a href="https://uthai-top100greendes2025.netlify.app" class="portal-card glass" data-tilt>
-                        <img src="contents/2025.jpg" alt="2025" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- Card 2025/1 -->
+                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
+                        <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="portal-card-content">
-                            <div class="portal-card-year">2025</div>
-                            <div class="portal-card-title">New Chapter</div>
-                            <div class="portal-card-desc">
-                                ก้าวต่อไปด้วยมาตรฐานที่สูงขึ้น
+                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
+                            <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
+                            <div class="portal-card-desc" data-i18n="c2-desc">
+                                ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง
                             </div>
-                            <div class="portal-card-link">
-                                <span>Explore</span>
-                                <span>→</span>
-                            </div>
+                            <span class="portal-card-cta">
+                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
+                            </span>
                         </div>
                     </a>
 
-                    <!-- 2026 Card -->
-                    <a href="https://uthai-top100greendes2026.netlify.app" class="portal-card glass" data-tilt>
-                        <img src="contents/D1.jpg" alt="2026" class="absolute inset-0 w-full h-full object-cover">
+                    <!-- Card 2025/2 -->
+                    <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
+                        <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="portal-card-content">
-                            <div class="portal-card-year">2026</div>
-                            <div class="portal-card-title">Future Vision</div>
-                            <div class="portal-card-desc">
-                                ยั่งยืนต่อไปสู่อนาคต
+                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
+                            <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
+                            <div class="portal-card-desc" data-i18n="c3-desc">
+                                ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ
                             </div>
-                            <div class="portal-card-link">
-                                <span>Explore</span>
-                                <span>→</span>
-                            </div>
+                            <span class="portal-card-cta">
+                                <span data-i18n="cta">เยี่ยมชม</span> <span>→</span>
+                            </span>
                         </div>
                     </a>
                 </div>
 
-                <!-- Footer Info -->
-                <div class="text-center text-sm text-gray-500 animate-fade-in-up" style="animation-delay: 0.6s">
-                    <p class="mb-2">Certified by Green Destinations Foundation</p>
-                    <p>Netherlands · Global Standard</p>
+                <!-- Coverflow Section -->
+                <div class="fade-up" style="animation-delay:0.4s">
+                    <div class="text-center mb-4">
+                        <h2 class="text-xl md:text-2xl font-bold" style="color:var(--section-heading)">
+                            <span class="text-green" data-i18n="gallery-title">เครือข่ายสีเขียว</span>
+                            <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
+                        </h2>
+                        <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="gallery-sub">กดที่ภาพตรงกลางเพื่อดูขนาดใหญ่ · กดภาพข้างๆ เพื่อเลื่อน</p>
+                    </div>
+
+                    <!-- Coverflow -->
+                    <div class="coverflow-wrap" role="region" aria-label="แกลเลอรีภาพเครือข่ายสีเขียว">
+                        <div class="coverflow-stage" id="cfStage">
+                            <div class="coverflow-slide" data-img="sticker/533075.jpg" data-label="เครือข่ายสีเขียว 1" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 1">
+                                <img src="sticker/533075.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 1" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533077.jpg" data-label="เครือข่ายสีเขียว 2" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 2">
+                                <img src="sticker/533077.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 2" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533078.jpg" data-label="เครือข่ายสีเขียว 3" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 3">
+                                <img src="sticker/533078.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 3" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533080.jpg" data-label="เครือข่ายสีเขียว 4" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 4">
+                                <img src="sticker/533080.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 4" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533081.jpg" data-label="เครือข่ายสีเขียว 5" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 5">
+                                <img src="sticker/533081.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 5" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533082.jpg" data-label="เครือข่ายสีเขียว 6" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 6">
+                                <img src="sticker/533082.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 6" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                            <div class="coverflow-slide" data-img="sticker/533083.jpg" data-label="เครือข่ายสีเขียว 7" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 7">
+                                <img src="sticker/533083.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 7" loading="lazy" decoding="async">
+                                <span class="cf-badge">กดดูภาพใหญ่</span>
+                            </div>
+                        </div>
+                        <!-- Nav dots + arrows -->
+                        <div class="flex items-center justify-center gap-3 mt-5" role="group" aria-label="ควบคุมแกลเลอรี">
+                            <button id="cfPrev" class="cf-arrow" aria-label="ภาพก่อนหน้า">&#8249;</button>
+                            <div id="cfDots" class="flex gap-2" role="tablist" aria-label="เลือกภาพ"></div>
+                            <button id="cfNext" class="cf-arrow" aria-label="ภาพถัดไป">&#8250;</button>
+                        </div>
+                        <!-- Progress indicator -->
+                        <p class="text-center text-xs mt-2" style="color:var(--text-muted)">
+                            <span id="cfCounter">1</span> / <span id="cfTotal">7</span>
+                        </p>
+                    </div>
                 </div>
+
+                <!-- Footer -->
+                <footer class="text-center mt-6 pb-6 fade-up" style="animation-delay:0.6s" role="contentinfo">
+                    <div class="flex items-center justify-center gap-3 mb-3">
+                        <img src="Award2024.jpg" alt="รางวัล Green Destinations 2024" class="h-10 rounded-lg opacity-90" loading="lazy" width="40" height="40">
+                        <img src="Award2025.jpg" alt="รางวัล Green Destinations 2025" class="h-10 rounded-lg opacity-90" loading="lazy" width="40" height="40">
+                    </div>
+                    <p class="text-xs" style="color:var(--text-muted)" data-i18n="footer1">ได้รับการรับรองจาก Green Destinations Foundation · ประเทศเนเธอร์แลนด์</p>
+                    <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="footer2">พัฒนาโดย เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality</p>
+                </footer>
+
             </div>
         </section>
     </div>
 
     <script>
-        // ── Fireflies Canvas ──────────────────────────────────
+        // ── Translation Data ──────────────────────────────────
+        const i18n = {
+            th: {
+                'nav-sub': 'Green Destinations Hub',
+                'badge': '🏆 Top 100 Green Destinations · การรับรองระดับโลก',
+                'h1-line1': 'สถานที่ท่องเที่ยว',
+                'h1-line2': 'สีเขียวระดับโลก',
+                'hero-sub': 'เมืองเก่าอุทัยธานี · เทศบาลเมืองอุทัยธานี ประเทศไทย',
+                'hero-desc': 'ผลงานความสำเร็จด้านการพัฒนาอย่างยั่งยืน ได้รับการรับรองจาก Green Destinations Foundation ประเทศเนเธอร์แลนด์',
+                'c1-sub': 'Top 100 Green Destinations',
+                'c1-title': 'จุดเริ่มต้นแห่งเกียรติยศ',
+                'c1-desc': 'อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล',
+                'c2-sub': 'Top 100 Green Destinations',
+                'c2-title': 'บทใหม่แห่งความยั่งยืน',
+                'c2-desc': 'ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง',
+                'c3-sub': 'Top 100 Green Destinations',
+                'c3-title': 'วิสัยทัศน์สู่อนาคต',
+                'c3-desc': 'ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ',
+                'cta': 'เยี่ยมชม',
+                'gallery-title': 'เครือข่ายสีเขียว',
+                'gallery-title2': ' · ร้านค้าและชุมชน',
+                'gallery-sub': 'กดที่ภาพเพื่อดูขนาดใหญ่',
+                'footer1': 'ได้รับการรับรองจาก Green Destinations Foundation · ประเทศเนเธอร์แลนด์',
+                'footer2': 'พัฒนาโดย เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality',
+                'theme-light': 'สว่าง',
+                'theme-dark': 'มืด',
+            },
+            en: {
+                'nav-sub': 'Green Destinations Hub',
+                'badge': '🏆 Top 100 Green Destinations · Global Certification',
+                'h1-line1': 'Award-Winning',
+                'h1-line2': 'Green Destination',
+                'hero-sub': 'Uthai Thani Old Town · Uthai Thani Town Municipality, Thailand',
+                'hero-desc': 'Recognized for outstanding sustainable tourism by the Green Destinations Foundation, Netherlands.',
+                'c1-sub': 'Top 100 Green Destinations',
+                'c1-title': 'The Beginning of Excellence',
+                'c1-desc': 'Uthai Thani steps onto the world stage for the first time, meeting international environmental standards.',
+                'c2-sub': 'Top 100 Green Destinations',
+                'c2-title': 'A New Chapter of Sustainability',
+                'c2-desc': 'Raising the bar for a green city, continuing the legacy into a second consecutive year.',
+                'c3-sub': 'Top 100 Green Destinations',
+                'c3-title': 'Vision for the Future',
+                'c3-desc': 'Driving green community growth through clean energy and responsible tourism.',
+                'cta': 'Explore',
+                'gallery-title': 'Green Network',
+                'gallery-title2': ' · Shops & Community',
+                'gallery-sub': 'Click an image to enlarge',
+                'footer1': 'Certified by Green Destinations Foundation · Netherlands',
+                'footer2': 'Developed by Uthai Thani Town Municipality',
+                'theme-light': 'Light',
+                'theme-dark': 'Dark',
+            }
+        };
+
+        let currentLang = 'th';
+
+        function applyLang(lang) {
+            currentLang = lang;
+            const dict = i18n[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) el.textContent = dict[key];
+            });
+            document.documentElement.lang = lang;
+            document.getElementById('langIcon').textContent = lang === 'th' ? '🇬🇧' : '🇹🇭';
+            document.getElementById('langLabel').textContent = lang === 'th' ? 'EN' : 'ไทย';
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            document.getElementById('themeLabel').textContent = isDark ? dict['theme-light'] : dict['theme-dark'];
+        }
+
+        document.getElementById('langBtn').addEventListener('click', () => {
+            applyLang(currentLang === 'th' ? 'en' : 'th');
+        });
+
+        // ── Theme Toggle ──────────────────────────────────
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const isDark = theme === 'dark';
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+            const dict = i18n[currentLang];
+            document.getElementById('themeLabel').textContent = isDark ? dict['theme-light'] : dict['theme-dark'];
+            localStorage.setItem('theme', theme);
+        }
+
+        document.getElementById('themeBtn').addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme');
+            applyTheme(current === 'dark' ? 'light' : 'dark');
+        });
+
+        // Restore saved theme
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        applyTheme(savedTheme);
+        applyLang('th');
+
+        // ── Fireflies ──────────────────────────────────
         const canvas = document.getElementById('fireflies-canvas');
         const ctx = canvas.getContext('2d');
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-
         const fireflies = [];
-        const fireflyCount = 80;
-
         class Firefly {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 1;
-                this.vy = (Math.random() - 0.5) * 1;
-                this.radius = Math.random() * 1.5 + 0.5;
-                this.opacity = Math.random() * 0.5 + 0.3;
-                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.vx = (Math.random() - 0.5) * 0.8;
+                this.vy = (Math.random() - 0.5) * 0.8;
+                this.radius = Math.random() * 1.5 + 0.4;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.twinkleSpeed = Math.random() * 0.018 + 0.008;
             }
-
             update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
+                this.x += this.vx; this.y += this.vy;
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-
                 this.opacity += (Math.random() - 0.5) * this.twinkleSpeed;
-                this.opacity = Math.max(0.1, Math.min(0.8, this.opacity));
+                this.opacity = Math.max(0.05, Math.min(0.75, this.opacity));
             }
-
             draw() {
-                ctx.fillStyle = `rgba(34, 197, 94, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.strokeStyle = `rgba(34, 197, 94, ${this.opacity * 0.5})`;
-                ctx.lineWidth = 0.5;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius * 2, 0, Math.PI * 2);
-                ctx.stroke();
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                const color = isDark ? '34,197,94' : '124,58,237';
+                ctx.fillStyle = `rgba(${color},${this.opacity})`;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fill();
             }
         }
-
-        for (let i = 0; i < fireflyCount; i++) {
-            fireflies.push(new Firefly());
-        }
-
+        for (let i = 0; i < 70; i++) fireflies.push(new Firefly());
         function animateFireflies() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            fireflies.forEach(firefly => {
-                firefly.update();
-                firefly.draw();
-            });
-
+            fireflies.forEach(f => { f.update(); f.draw(); });
             requestAnimationFrame(animateFireflies);
         }
-
         animateFireflies();
-
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
         // ── Custom Cursor ──────────────────────────────────
         const cursorDot = document.getElementById('cursorDot');
         const cursorOutline = document.getElementById('cursorOutline');
-
-        document.addEventListener('mousemove', (e) => {
-            const x = e.clientX;
-            const y = e.clientY;
-
-            cursorDot.style.left = x - 4 + 'px';
-            cursorDot.style.top = y - 4 + 'px';
-
-            cursorOutline.style.left = x - 15 + 'px';
-            cursorOutline.style.top = y - 15 + 'px';
+        document.addEventListener('mousemove', e => {
+            cursorDot.style.left = e.clientX - 4 + 'px';
+            cursorDot.style.top  = e.clientY - 4 + 'px';
+            cursorOutline.style.left = e.clientX - 15 + 'px';
+            cursorOutline.style.top  = e.clientY - 15 + 'px';
         });
-
-        document.addEventListener('mouseenter', () => {
-            cursorDot.style.opacity = '1';
-            cursorOutline.style.opacity = '1';
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursorDot.style.opacity = '0';
-            cursorOutline.style.opacity = '0';
-        });
-
-        // Expand cursor on interactive elements
-        document.querySelectorAll('a, button, [data-tilt]').forEach(el => {
+        document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
-                cursorOutline.style.width = '50px';
-                cursorOutline.style.height = '50px';
-                cursorOutline.style.borderColor = 'rgba(34, 197, 94, 0.8)';
+                cursorOutline.style.width = '50px'; cursorOutline.style.height = '50px';
+                cursorOutline.style.borderColor = 'rgba(34,197,94,0.85)';
             });
-
             el.addEventListener('mouseleave', () => {
-                cursorOutline.style.width = '30px';
-                cursorOutline.style.height = '30px';
-                cursorOutline.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+                cursorOutline.style.width = '30px'; cursorOutline.style.height = '30px';
+                cursorOutline.style.borderColor = 'rgba(34,197,94,0.5)';
             });
         });
 
-        // ── Scroll Progress Bar ──────────────────────────────────
+        // ── Scroll Progress ──────────────────────────────────
         const scrollProgress = document.getElementById('scrollProgress');
-
         window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
+            const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            scrollProgress.style.width = pct + '%';
         });
 
         // ── Vanilla Tilt ──────────────────────────────────
-        VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
-            max: 15,
-            scale: 1.05,
-            speed: 400,
-            glare: true,
-            'max-glare': 0.3
+        if (typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+                max: 12, scale: 1.04, speed: 400, glare: true, 'max-glare': 0.25
+            });
+        }
+
+        // ── Coverflow ──────────────────────────────────
+        const slides = Array.from(document.querySelectorAll('.coverflow-slide'));
+        const TOTAL = slides.length;
+        let cfIndex = Math.floor(TOTAL / 2); // start at center
+
+        // Infinite-like wrapping by clamping gracefully and updating arrow state
+        function updateCoverflow() {
+            const clsMap = { 0:'cf-active', '-1':'cf-prev1', 1:'cf-next1', '-2':'cf-prev2', 2:'cf-next2', '-3':'cf-prev3', 3:'cf-next3' };
+            slides.forEach((slide, i) => {
+                const diff = i - cfIndex;
+                slide.className = 'coverflow-slide';
+                slide.setAttribute('aria-selected', diff === 0 ? 'true' : 'false');
+                const cls = clsMap[String(diff)];
+                slide.classList.add(cls || 'cf-hidden');
+            });
+            // dots
+            const dotsContainer = document.getElementById('cfDots');
+            dotsContainer.innerHTML = '';
+            slides.forEach((_, i) => {
+                const d = document.createElement('button');
+                d.className = 'cf-dot' + (i === cfIndex ? ' active' : '');
+                d.setAttribute('role', 'tab');
+                d.setAttribute('aria-selected', i === cfIndex ? 'true' : 'false');
+                d.setAttribute('aria-label', `ภาพที่ ${i+1}`);
+                d.addEventListener('click', () => { cfIndex = i; updateCoverflow(); });
+                dotsContainer.appendChild(d);
+            });
+            // counter
+            document.getElementById('cfCounter').textContent = cfIndex + 1;
+            document.getElementById('cfTotal').textContent = TOTAL;
+            // arrow disable at edges
+            document.getElementById('cfPrev').disabled = cfIndex === 0;
+            document.getElementById('cfNext').disabled = cfIndex === TOTAL - 1;
+        }
+
+        document.getElementById('cfPrev').addEventListener('click', () => {
+            if (cfIndex > 0) { cfIndex--; updateCoverflow(); }
+        });
+        document.getElementById('cfNext').addEventListener('click', () => {
+            if (cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
         });
 
-        // ── Stagger Animation ──────────────────────────────────
-        document.querySelectorAll('.animate-fade-in-up').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.animation = `fadeInUp 0.8s ease-out ${index * 0.2}s forwards`;
+        // Keyboard navigation on coverflow stage
+        document.getElementById('cfStage').addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft' && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
+            if (e.key === 'ArrowRight' && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
+        });
+
+        // Touch / drag support
+        let touchStartX = 0, touchStartY = 0, dragging = false;
+        const cfStage = document.getElementById('cfStage');
+        cfStage.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            dragging = false;
+        }, { passive: true });
+        cfStage.addEventListener('touchmove', e => {
+            const dx = e.touches[0].clientX - touchStartX;
+            const dy = e.touches[0].clientY - touchStartY;
+            if (Math.abs(dx) > Math.abs(dy) + 5) { dragging = true; e.preventDefault(); }
+        }, { passive: false });
+        cfStage.addEventListener('touchend', e => {
+            if (!dragging) return;
+            const dx = e.changedTouches[0].clientX - touchStartX;
+            if (dx < -40 && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
+            if (dx >  40 && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
+        });
+
+        // Mouse drag support
+        let mouseStartX = 0, isMouseDown = false;
+        cfStage.addEventListener('mousedown', e => { mouseStartX = e.clientX; isMouseDown = true; });
+        cfStage.addEventListener('mousemove', e => { if (isMouseDown) cfStage.style.cursor = 'grabbing'; });
+        cfStage.addEventListener('mouseup', e => {
+            if (!isMouseDown) return; isMouseDown = false; cfStage.style.cursor = '';
+            const dx = e.clientX - mouseStartX;
+            if (dx < -40 && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
+            if (dx >  40 && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
+        });
+        cfStage.addEventListener('mouseleave', () => { isMouseDown = false; cfStage.style.cursor = ''; });
+
+        // Click slide: side slides advance, active slide opens lightbox
+        slides.forEach((slide, i) => {
+            slide.addEventListener('click', () => {
+                if (i !== cfIndex) { cfIndex = i; updateCoverflow(); }
+                else {
+                    const img = slide.getAttribute('data-img');
+                    const lbImg = document.getElementById('lightbox-img');
+                    lbImg.src = img;
+                    lbImg.alt = slide.getAttribute('data-label') || 'ภาพขยาย';
+                    document.getElementById('lightbox').classList.add('open');
+                    document.getElementById('lightbox-close').focus();
+                }
+            });
+            slide.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); slide.click(); }
+            });
+        });
+
+        // Lightbox close
+        const lb = document.getElementById('lightbox');
+        document.getElementById('lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
+        lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+
+        updateCoverflow();
+
+        // ── Fade-up on load ──────────────────────────────────
+        document.querySelectorAll('.fade-up').forEach((el, i) => {
+            el.style.animationDelay = (i * 0.12) + 's';
         });
     </script>
 </body>
