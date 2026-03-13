@@ -183,29 +183,6 @@
             border: 1px solid var(--border-color);
             box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
-        /* 2-column layout wrapper */
-        .main-content-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
-            align-items: start;
-        }
-        @media (min-width: 1024px) {
-            .main-content-grid {
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-                gap: 32px;
-            }
-            .portal-card { height: 160px; }
-            .portal-card-year { font-size: 2rem; }
-            .portal-card-title { font-size: 1.1rem; margin-bottom: 4px; }
-            .portal-card-desc { font-size: 0.82rem; margin-bottom: 12px; line-clamp: 2; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
-            .portal-card-content { padding: 16px 20px; }
-            .portal-card-subtitle { margin-bottom: 2px; }
-        }
-        @media (min-width: 1280px) {
-            .portal-card { height: 175px; }
-        }
         .portal-card::before {
             content: ''; position: absolute; inset: 0;
             background: rgba(0,0,0,0.38); z-index: 2;
@@ -247,106 +224,44 @@
         }
         .portal-card-cta:hover { background: rgba(34,197,94,0.35); border-color: var(--ci-green); color: #fff; gap: 12px; }
 
-        /* ── Coverflow ────────────────────────────────── */
-        .coverflow-wrap {
-            position: relative; width: 100%;
-            padding: 24px 0 36px;
+        /* ── Marquee Gallery ────────────────────────────────── */
+        .marquee-wrap {
+            position: relative; width: 100vw; max-width: 100%; overflow: hidden;
+            padding: 24px 0; margin-left: calc(-50vw + 50%);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
         }
-        .coverflow-stage {
-            perspective: 1200px;
-            display: flex; align-items: center; justify-content: center;
-            height: clamp(260px, 40vw, 380px);
-            position: relative;
+        .marquee-track {
+            display: flex; gap: 20px; width: max-content;
+            animation: scroll 40s linear infinite;
         }
-        .coverflow-slide {
-            position: absolute;
-            width: clamp(160px, 26vw, 260px);
-            height: clamp(200px, 33vw, 320px);
-            border-radius: 20px; overflow: hidden;
-            cursor: pointer;
-            pointer-events: none;
-            transition: transform 0.55s cubic-bezier(0.4,0,0.2,1),
-                        opacity 0.55s cubic-bezier(0.4,0,0.2,1),
-                        box-shadow 0.55s ease,
-                        border-color 0.55s ease;
-            border: 2px solid transparent;
-            box-shadow: 0 8px 28px rgba(0,0,0,0.3);
-            will-change: transform, opacity;
-            transform: translateX(0) scale(0.5);
-            opacity: 0;
+        .marquee-track:hover { animation-play-state: paused; }
+        
+        .marquee-item {
+            width: 160px; height: 160px; border-radius: 16px; overflow: hidden;
+            flex-shrink: 0; position: relative; cursor: pointer;
+            border: 2px solid var(--border-color); transition: all 0.3s ease;
         }
-        .coverflow-slide img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+        .marquee-item img {
+            width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.4s ease;
-            pointer-events: none;
         }
-        .coverflow-slide.cf-active:hover img { transform: scale(1.06); }
+        .marquee-item:hover {
+            border-color: var(--ci-green); box-shadow: 0 8px 24px rgba(34,197,94,0.25);
+            transform: translateY(-4px);
+        }
+        .marquee-item:hover img { transform: scale(1.1); }
+        .marquee-badge {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease; color: #fff;
+            font-size: 0.8rem; font-weight: 600;
+        }
+        .marquee-item:hover .marquee-badge { opacity: 1; }
 
-        .coverflow-slide.cf-active {
-            transform: translateX(0) scale(1) rotateY(0deg);
-            opacity: 1;
-            z-index: 10;
-            pointer-events: auto;
-            box-shadow: 0 24px 64px rgba(34,197,94,0.35), 0 0 0 2px var(--ci-green);
-            border-color: var(--ci-green);
-        }
-        .coverflow-slide.cf-prev1 {
-            transform: translateX(-68%) scale(0.84) rotateY(22deg);
-            opacity: 0.72; z-index: 7; pointer-events: auto;
-        }
-        .coverflow-slide.cf-next1 {
-            transform: translateX(68%) scale(0.84) rotateY(-22deg);
-            opacity: 0.72; z-index: 7; pointer-events: auto;
-        }
-        .coverflow-slide.cf-prev2 {
-            transform: translateX(-120%) scale(0.66) rotateY(36deg);
-            opacity: 0.38; z-index: 4; pointer-events: auto;
-        }
-        .coverflow-slide.cf-next2 {
-            transform: translateX(120%) scale(0.66) rotateY(-36deg);
-            opacity: 0.38; z-index: 4; pointer-events: auto;
-        }
-        .coverflow-slide.cf-prev3 {
-            transform: translateX(-160%) scale(0.5) rotateY(48deg);
-            opacity: 0.12; z-index: 1; pointer-events: auto;
-        }
-        .coverflow-slide.cf-next3 {
-            transform: translateX(160%) scale(0.5) rotateY(-48deg);
-            opacity: 0.12; z-index: 1; pointer-events: auto;
-        }
-        .coverflow-slide.cf-hidden {
-            opacity: 0; pointer-events: none; z-index: 0;
-            transform: translateX(0) scale(0.3);
-        }
-        /* Active badge on slide */
-        .cf-badge {
-            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
-            background: rgba(34,197,94,0.85); color: #fff;
-            font-size: 0.68rem; font-weight: 700; padding: 3px 10px;
-            border-radius: 10px; letter-spacing: 0.04em; white-space: nowrap;
-            opacity: 0; transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        .coverflow-slide.cf-active .cf-badge { opacity: 1; }
-        /* Dot nav */
-        .cf-dot {
-            width: 8px; height: 8px; border-radius: 50%;
-            background: var(--text-muted); border: none; cursor: pointer; padding: 0;
-            transition: background 0.25s ease, transform 0.25s ease;
-        }
-        .cf-dot.active { background: var(--ci-green); transform: scale(1.5); }
-        /* Arrow buttons */
-        .cf-arrow {
-            background: var(--toggle-bg); border: 1px solid var(--toggle-border);
-            color: var(--text-primary); border-radius: 50%; width: 40px; height: 40px;
-            font-size: 1.2rem; cursor: pointer; display: flex; align-items: center;
-            justify-content: center; transition: all 0.25s ease; flex-shrink: 0;
-            padding: 0;
-        }
-        .cf-arrow:hover:not(:disabled) { background: rgba(34,197,94,0.2); border-color: var(--ci-green); color: var(--ci-green); }
-        .cf-arrow:disabled { opacity: 0.3; cursor: not-allowed; }
-        @media (prefers-reduced-motion: reduce) {
-            .coverflow-slide { transition: none; }
+        @keyframes scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 10px)); }
         }
 
         /* ── Lightbox ────────────────────────────────── */
@@ -374,21 +289,18 @@
         }
 
         /* ── Responsive ────────────────────────────────── */
-        @media (max-width: 1023px) {
+        @media (max-width: 1024px) {
             .portal-card { height: 400px; }
         }
         @media (max-width: 768px) {
-            .portal-card { height: 320px; }
-            .portal-card-year { font-size: 2.2rem; }
-            .portal-card-title { font-size: 1.05rem; }
-            .portal-card-desc { font-size: 0.85rem; margin-bottom: 14px; }
-            .portal-card-content { padding: 20px 18px; }
-            .coverflow-stage { min-height: 260px; }
+            .portal-card { height: 360px; }
+            .portal-card-year { font-size: 2.4rem; }
+            .portal-card-title { font-size: 1.1rem; }
         }
         @media (max-width: 480px) {
-            .portal-card { height: 280px; }
-            .portal-card-year { font-size: 1.9rem; }
-            .cf-arrow { width: 34px; height: 34px; font-size: 1rem; }
+            .portal-card { height: 320px; }
+            .portal-card-year { font-size: 2rem; }
+            .marquee-item { width: 120px; height: 120px; }
         }
     </style>
 </head>
@@ -451,100 +363,60 @@
                     </p>
                 </div>
 
-                <!-- 2-Column Grid: cards left, coverflow right -->
-                <div class="main-content-grid fade-up" style="animation-delay:0.2s">
+                <!-- Portal Cards (Horizontal Grid) -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 fade-up" style="animation-delay:0.2s">
 
-                    <!-- LEFT: Portal Cards (stacked 3 rows on desktop, horizontal on mobile) -->
-                    <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4">
-
-                        <!-- Card 2024 -->
-                        <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
-                            <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
-                            <div class="portal-card-content">
-                                <div class="portal-card-year">2024</div>
-                                <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
-                                <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
-                                <div class="portal-card-desc" data-i18n="c1-desc">อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล</div>
-                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
-                            </div>
-                        </a>
-
-                        <!-- Card 2025/1 -->
-                        <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
-                            <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
-                            <div class="portal-card-content">
-                                <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
-                                <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
-                                <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
-                                <div class="portal-card-desc" data-i18n="c2-desc">ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง</div>
-                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
-                            </div>
-                        </a>
-
-                        <!-- Card 2025/2 -->
-                        <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
-                            <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
-                            <div class="portal-card-content">
-                                <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
-                                <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
-                                <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
-                                <div class="portal-card-desc" data-i18n="c3-desc">ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ</div>
-                                <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- RIGHT: Coverflow -->
-                    <div>
-                        <div class="text-center mb-3">
-                            <h2 class="text-lg lg:text-xl font-bold" style="color:var(--section-heading)">
-                                <span class="text-green" data-i18n="gallery-title">เครือข่ายสีเขียว</span>
-                                <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
-                            </h2>
-                            <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="gallery-sub">กดที่ภาพตรงกลางเพื่อดูขนาดใหญ่ · กดภาพข้างๆ เพื่อเลื่อน</p>
+                    <!-- Card 2024 -->
+                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
+                        <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
+                        <div class="portal-card-content">
+                            <div class="portal-card-year">2024</div>
+                            <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
+                            <div class="portal-card-desc" data-i18n="c1-desc">อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล</div>
+                            <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                         </div>
-                        <div class="coverflow-wrap" role="region" aria-label="แกลเลอรีภาพเครือข่ายสีเขียว">
-                            <div class="coverflow-stage" id="cfStage">
-                                <div class="coverflow-slide" data-img="sticker/533075.jpg" data-label="เครือข่ายสีเขียว 1" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 1">
-                                    <img src="sticker/533075.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 1" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533077.jpg" data-label="เครือข่ายสีเขียว 2" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 2">
-                                    <img src="sticker/533077.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 2" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533078.jpg" data-label="เครือข่ายสีเขียว 3" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 3">
-                                    <img src="sticker/533078.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 3" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533080.jpg" data-label="เครือข่ายสีเขียว 4" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 4">
-                                    <img src="sticker/533080.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 4" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533081.jpg" data-label="เครือข่ายสีเขียว 5" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 5">
-                                    <img src="sticker/533081.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 5" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533082.jpg" data-label="เครือข่ายสีเขียว 6" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 6">
-                                    <img src="sticker/533082.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 6" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                                <div class="coverflow-slide" data-img="sticker/533083.jpg" data-label="เครือข่ายสีเขียว 7" tabindex="0" role="button" aria-label="ภาพเครือข่ายสีเขียว 7">
-                                    <img src="sticker/533083.jpg" alt="ร้านค้าเครือข่ายสีเขียว อุทัยธานี 7" loading="lazy" decoding="async">
-                                    <span class="cf-badge">กดดูภาพใหญ่</span>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-center gap-3 mt-4" role="group" aria-label="ควบคุมแกลเลอรี">
-                                <button id="cfPrev" class="cf-arrow" aria-label="ภาพก่อนหน้า">&#8249;</button>
-                                <div id="cfDots" class="flex gap-2" role="tablist" aria-label="เลือกภาพ"></div>
-                                <button id="cfNext" class="cf-arrow" aria-label="ภาพถัดไป">&#8250;</button>
-                            </div>
-                            <p class="text-center text-xs mt-1" style="color:var(--text-muted)">
-                                <span id="cfCounter">1</span> / <span id="cfTotal">7</span>
-                            </p>
+                    </a>
+
+                    <!-- Card 2025/1 -->
+                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
+                        <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                        <div class="portal-card-content">
+                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
+                            <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
+                            <div class="portal-card-desc" data-i18n="c2-desc">ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง</div>
+                            <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
+                        </div>
+                    </a>
+
+                    <!-- Card 2025/2 -->
+                    <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
+                        <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                        <div class="portal-card-content">
+                            <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
+                            <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
+                            <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
+                            <div class="portal-card-desc" data-i18n="c3-desc">ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ</div>
+                            <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Marquee Gallery -->
+                <div class="fade-up" style="animation-delay:0.4s">
+                    <div class="text-center mb-2">
+                        <h2 class="text-lg md:text-xl font-bold" style="color:var(--section-heading)">
+                            <span class="text-green" data-i18n="gallery-title">เครือข่ายสีเขียว</span>
+                            <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
+                        </h2>
+                    </div>
+                    
+                    <div class="marquee-wrap">
+                        <div class="marquee-track" id="mqTrack">
+                            <!-- JS will inject duplicated items here for infinite scroll -->
                         </div>
                     </div>
-
                 </div>
 
                 <!-- Footer -->
@@ -729,111 +601,48 @@
             });
         }
 
-        // ── Coverflow ──────────────────────────────────
-        const slides = Array.from(document.querySelectorAll('.coverflow-slide'));
-        const TOTAL = slides.length;
-        let cfIndex = Math.floor(TOTAL / 2); // start at center
-
-        // Infinite-like wrapping by clamping gracefully and updating arrow state
-        function updateCoverflow() {
-            const clsMap = { 0:'cf-active', '-1':'cf-prev1', 1:'cf-next1', '-2':'cf-prev2', 2:'cf-next2', '-3':'cf-prev3', 3:'cf-next3' };
-            slides.forEach((slide, i) => {
-                const diff = i - cfIndex;
-                slide.className = 'coverflow-slide';
-                slide.setAttribute('aria-selected', diff === 0 ? 'true' : 'false');
-                const cls = clsMap[String(diff)];
-                slide.classList.add(cls || 'cf-hidden');
-            });
-            // dots
-            const dotsContainer = document.getElementById('cfDots');
-            dotsContainer.innerHTML = '';
-            slides.forEach((_, i) => {
-                const d = document.createElement('button');
-                d.className = 'cf-dot' + (i === cfIndex ? ' active' : '');
-                d.setAttribute('role', 'tab');
-                d.setAttribute('aria-selected', i === cfIndex ? 'true' : 'false');
-                d.setAttribute('aria-label', `ภาพที่ ${i+1}`);
-                d.addEventListener('click', () => { cfIndex = i; updateCoverflow(); });
-                dotsContainer.appendChild(d);
-            });
-            // counter
-            document.getElementById('cfCounter').textContent = cfIndex + 1;
-            document.getElementById('cfTotal').textContent = TOTAL;
-            // arrow disable at edges
-            document.getElementById('cfPrev').disabled = cfIndex === 0;
-            document.getElementById('cfNext').disabled = cfIndex === TOTAL - 1;
-        }
-
-        document.getElementById('cfPrev').addEventListener('click', () => {
-            if (cfIndex > 0) { cfIndex--; updateCoverflow(); }
-        });
-        document.getElementById('cfNext').addEventListener('click', () => {
-            if (cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
-        });
-
-        // Keyboard navigation on coverflow stage
-        document.getElementById('cfStage').addEventListener('keydown', e => {
-            if (e.key === 'ArrowLeft' && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
-            if (e.key === 'ArrowRight' && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
-        });
-
-        // Touch / drag support
-        let touchStartX = 0, touchStartY = 0, dragging = false;
-        const cfStage = document.getElementById('cfStage');
-        cfStage.addEventListener('touchstart', e => {
-            touchStartX = e.touches[0].clientX;
-            touchStartY = e.touches[0].clientY;
-            dragging = false;
-        }, { passive: true });
-        cfStage.addEventListener('touchmove', e => {
-            const dx = e.touches[0].clientX - touchStartX;
-            const dy = e.touches[0].clientY - touchStartY;
-            if (Math.abs(dx) > Math.abs(dy) + 5) { dragging = true; e.preventDefault(); }
-        }, { passive: false });
-        cfStage.addEventListener('touchend', e => {
-            if (!dragging) return;
-            const dx = e.changedTouches[0].clientX - touchStartX;
-            if (dx < -40 && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
-            if (dx >  40 && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
-        });
-
-        // Mouse drag support
-        let mouseStartX = 0, isMouseDown = false;
-        cfStage.addEventListener('mousedown', e => { mouseStartX = e.clientX; isMouseDown = true; });
-        cfStage.addEventListener('mousemove', e => { if (isMouseDown) cfStage.style.cursor = 'grabbing'; });
-        cfStage.addEventListener('mouseup', e => {
-            if (!isMouseDown) return; isMouseDown = false; cfStage.style.cursor = '';
-            const dx = e.clientX - mouseStartX;
-            if (dx < -40 && cfIndex < TOTAL - 1) { cfIndex++; updateCoverflow(); }
-            if (dx >  40 && cfIndex > 0)          { cfIndex--; updateCoverflow(); }
-        });
-        cfStage.addEventListener('mouseleave', () => { isMouseDown = false; cfStage.style.cursor = ''; });
-
-        // Click slide: side slides advance, active slide opens lightbox
-        slides.forEach((slide, i) => {
-            slide.addEventListener('click', () => {
-                if (i !== cfIndex) { cfIndex = i; updateCoverflow(); }
-                else {
-                    const img = slide.getAttribute('data-img');
+        // ── Marquee Gallery ──────────────────────────────────
+        const galleryImages = [
+            'sticker/533075.jpg', 'sticker/533077.jpg', 'sticker/533078.jpg', 
+            'sticker/533080.jpg', 'sticker/533081.jpg', 'sticker/533082.jpg', 'sticker/533083.jpg'
+        ];
+        
+        const track = document.getElementById('mqTrack');
+        
+        function createMarqueeItems() {
+            const itemsHTML = galleryImages.map((src, i) => `
+                <div class="marquee-item" data-img="${src}" tabindex="0" role="button" aria-label="ภาพเครือข่าย ${i+1}">
+                    <img src="${src}" alt="Green Network" loading="lazy">
+                    <span class="marquee-badge">ดูภาพใหญ่</span>
+                </div>
+            `).join('');
+            
+            // Duplicate 2 times for seamless infinite scroll
+            track.innerHTML = itemsHTML + itemsHTML;
+            
+            // Add click events
+            document.querySelectorAll('.marquee-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    const img = item.getAttribute('data-img');
                     const lbImg = document.getElementById('lightbox-img');
                     lbImg.src = img;
-                    lbImg.alt = slide.getAttribute('data-label') || 'ภาพขยาย';
+                    lbImg.alt = 'ภาพเครือข่าย';
                     document.getElementById('lightbox').classList.add('open');
                     document.getElementById('lightbox-close').focus();
-                }
+                });
+                item.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); item.click(); }
+                });
             });
-            slide.addEventListener('keydown', e => {
-                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); slide.click(); }
-            });
-        });
+        }
+        
+        createMarqueeItems();
 
         // Lightbox close
         const lb = document.getElementById('lightbox');
         document.getElementById('lightbox-close').addEventListener('click', () => lb.classList.remove('open'));
         lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
         document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
-
-        updateCoverflow();
 
         // ── Fade-up on load ──────────────────────────────────
         document.querySelectorAll('.fade-up').forEach((el, i) => {
