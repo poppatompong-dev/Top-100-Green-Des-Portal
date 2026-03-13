@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อุทัยธานี · Top 100 Green Destinations 2 ปีซ้อน (2024–2025)</title>
+    <meta name="description"
+        content="เทศบาลเมืองอุทัยธานี ได้รับรางวัล Top 100 Green Destinations ต่อเนื่อง 2 ปีซ้อน (2024–2025) สัมผัสเรื่องราวความยั่งยืนของเมืองริมแม่น้ำสะแกกรัง">
+    <meta property="og:title" content="อุทัยธานี · Top 100 Green Destinations 2024–2025">
+    <meta property="og:description" content="จุดหมายปลายทางสีเขียวระดับโลก 2 ปีซ้อน">
+    <meta property="og:image" content="Award2025.jpg">
+
+    <!-- Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#0f3a15',
+                            900: '#071a09',
+                            950: '#030c04',
+                        },
+                        gold: {
+                            300: '#fde68a',
+                            400: '#facc15',
+                            500: '#d4af37',
+                            600: '#b8962e',
+                        },
+                        river: {
+                            400: '#60a5fa',
+                            500: '#3b82f6',
+                            600: '#1e40af',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 8s ease-in-out infinite',
+                        'float-med': 'floatMed 6s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'shimmer': 'shimmer 3s linear infinite',
+                        'badge-in': 'badgeIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Vanilla Tilt -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+
+    <style>
+        /* ─── Reset & Base ─── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #030c04;
+            color: #f0fdf4;
+            cursor: none;
+            font-family: 'Prompt', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ─── Custom Cursor ─── */
+        #cursor-dot {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: #4ade80;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99999;
+            transform: translate(-50%, -50%);
+            transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease, opacity 0.25s ease;
+            box-shadow: 0 0 12px 4px rgba(74, 222, 128, 0.6);
+        }
+
+        #cursor-ring {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 36px;
+            height: 36px;
+            border: 1.5px solid rgba(74, 222, 128, 0.45);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 99998;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease, border-color 0.3s ease, opacity 0.3s ease;
+        }
+
+        body:hover #cursor-dot {
+            opacity: 1;
+        }
+
+        .cursor-hover #cursor-dot {
+            width: 48px;
+            height: 48px;
+            background: rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 20px 8px rgba(212, 175, 55, 0.3);
+        }
+
+        .cursor-hover #cursor-ring {
+            width: 64px;
+            height: 64px;
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        /* ─── Fireflies Canvas ─── */
+        #fireflies-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── Glassmorphism ─── */
+        .glass {
+            background: rgba(15, 58, 21, 0.25);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border: 1px solid rgba(74, 222, 128, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        .glass-dark {
+            background: rgba(3, 12, 4, 0.55);
+            backdrop-filter: blur(28px) saturate(1.2);
+            -webkit-backdrop-filter: blur(28px) saturate(1.2);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        }
+
+        .glass-gold {
+            background: rgba(212, 175, 55, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        /* ─── Background Layers ─── */
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('contents/D1.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            filter: brightness(0.28) saturate(1.3);
+            animation: heroZoom 40s ease-in-out infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes heroZoom {
+            0% {
+                transform: scale(1) translateX(0);
+            }
+
+            100% {
+                transform: scale(1.08) translateX(-2%);
+            }
+        }
+
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(3, 12, 4, 0.92) 0%, rgba(7, 26, 9, 0.75) 40%, rgba(3, 12, 4, 0.4) 100%),
+                radial-gradient(ellipse at 80% 50%, rgba(34, 197, 94, 0.08) 0%, transparent 60%);
+            z-index: 1;
+        }
+
+        /* ─── Decorative Elements ─── */
+        .orb-green {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.15) 0%, transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .orb-gold {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+            filter: blur(50px);
+            pointer-events: none;
+        }
+
+        /* ─── Typography ─── */
+        .text-gradient-green {
+            background: linear-gradient(135deg, #ffffff 0%, #86efac 50%, #4ade80 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fde68a 0%, #d4af37 50%, #b8962e 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-mixed {
+            background: linear-gradient(135deg, #4ade80 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ─── Award Badge ─── */
+        .award-badge {
+            position: relative;
+            display: inline-block;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .award-badge:hover {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .award-badge::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #4ade80, #d4af37, #4ade80, #d4af37, #4ade80);
+            animation: spin 6s linear infinite;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: -1;
+        }
+
+        .award-badge:hover::before {
+            opacity: 0.6;
+            filter: blur(8px);
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ─── Portal Cards ─── */
+        .portal-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.5s ease;
+            border-radius: 1.5rem;
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1.6rem;
+            background: linear-gradient(45deg, #22c55e, #d4af37, #22c55e, #d4af37);
+            background-size: 400%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            animation: gradientShift 8s linear infinite;
+            z-index: -1;
+        }
+
+        .portal-card:hover::before {
+            opacity: 1;
+            filter: blur(16px);
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .portal-card .card-bg-img {
+            transition: transform 0.9s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.9s ease;
+            filter: grayscale(70%) brightness(0.55) saturate(0.8);
+        }
+
+        .portal-card:hover .card-bg-img {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(0.85) saturate(1.2);
+        }
+
+        .portal-card .card-body {
+            transform: translateZ(40px);
+        }
+
+        .portal-card .card-cta {
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
+        }
+
+        .portal-card:hover .card-cta {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portal-card .card-year-label {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .portal-card:hover .card-year-label {
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.6);
+        }
+
+        /* ─── Sticker Ribbon ─── */
+        @keyframes ribbonScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .sticker-ribbon-track {
+            display: flex;
+            width: max-content;
+            animation: ribbonScroll 45s linear infinite;
+        }
+
+        .sticker-ribbon-track:hover {
+            animation-play-state: paused;
+        }
+
+        .sticker-item {
+            flex-shrink: 0;
+            margin: 0 12px;
+            cursor: pointer;
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        }
+
+        .sticker-item:hover {
+            transform: scale(1.25) rotate(0deg) !important;
+            filter: drop-shadow(0 8px 20px rgba(74, 222, 128, 0.4));
+            z-index: 10;
+        }
+
+        .sticker-photo {
+            height: 80px;
+            width: auto;
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            border-bottom-width: 10px;
+            border-radius: 3px;
+            object-fit: cover;
+            background: white;
+        }
+
+        /* ─── Entry Animations ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .reveal.visible {
+            animation: revealUp 0.9s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+
+        @keyframes revealUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-delay-1 {
+            animation-delay: 0.15s;
+        }
+
+        .reveal-delay-2 {
+            animation-delay: 0.3s;
+        }
+
+        .reveal-delay-3 {
+            animation-delay: 0.45s;
+        }
+
+        .reveal-delay-4 {
+            animation-delay: 0.6s;
+        }
+
+        .reveal-delay-5 {
+            animation-delay: 0.75s;
+        }
+
+        /* ─── Keyframe Animations ─── */
+        @keyframes floatSlow {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes floatMed {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(74, 222, 128, 0.6), 0 0 80px rgba(74, 222, 128, 0.2);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes badgeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-15deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* ─── Shimmer Text ─── */
+        .shimmer-text {
+            background: linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(255, 255, 255, 1) 25%,
+                    rgba(212, 175, 55, 1) 50%,
+                    rgba(255, 255, 255, 1) 75%,
+                    rgba(255, 255, 255, 0.6) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+
+        /* ─── Divider ─── */
+        .decor-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 0 auto;
+        }
+
+        /* ─── Stats Counter ─── */
+        .stat-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 222, 128, 0.06), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .stat-card:hover::after {
+            left: 100%;
+        }
+
+        /* ─── Lightbox ─── */
+        #lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(20px);
+            z-index: 100000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: zoom-out;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        #lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        #lightbox-img {
+            max-width: 88vw;
+            max-height: 78vh;
+            border: 8px solid white;
+            border-bottom-width: 36px;
+            border-radius: 6px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+            transform: scale(0.85);
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #lightbox.active #lightbox-img {
+            transform: scale(1);
+        }
+
+        /* ─── Scroll Progress ─── */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #4ade80, #d4af37);
+            z-index: 99997;
+            transition: width 0.1s linear;
+        }
+
+        /* ─── Navigation ─── */
+        #navbar {
+            transition: background 0.4s ease, backdrop-filter 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        #navbar.scrolled {
+            background: rgba(3, 12, 4, 0.85);
+            backdrop-filter: blur(24px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ─── Section Backgrounds ─── */
+        .section-forest {
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(34, 197, 94, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 50%),
+                linear-gradient(180deg, #030c04 0%, #071a09 50%, #030c04 100%);
+        }
+
+        /* ─── Mobile Responsive ─── */
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+
+            #cursor-dot,
+            #cursor-ring {
+                display: none;
+            }
+
+            .portal-card .card-cta {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ─── Scroll Snap (Optional) ─── */
+        .snap-section {
+            scroll-snap-align: start;
+        }
+
+        /* ─── Hover Gold ─── */
+        .hover-gold {
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .hover-gold:hover {
+            color: #d4af37;
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ─── Ping Dot ─── */
+        .ping-dot {
+            position: relative;
+            display: inline-flex;
+        }
+
+        .ping-dot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #d4af37;
+            animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+
+        @keyframes ping {
+
+            75%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* ─── Award Float Animation ─── */
+        .award-float-1 {
+            animation: floatSlow 7s ease-in-out infinite;
+        }
+
+        .award-float-2 {
+            animation: floatSlow 9s ease-in-out infinite;
+            animation-delay: -3s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" style="width: 0%"></div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- Fireflies Canvas -->
+    <canvas id="fireflies-canvas"></canvas>
+
+    <!-- ════════════════════════════════════════
+         NAVBAR
+    ════════════════════════════════════════ -->
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-4 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-3 group cursor-none hover-interactive">
+            <div
+                class="w-9 h-9 rounded-full border border-gold-500/40 flex items-center justify-center glass-gold transition-all duration-300 group-hover:border-gold-400/70">
+                <svg class="w-4 h-4 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.5">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                    <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.11" />
+                    <path d="M15 7h-6l-2 5h10l-2-5z" />
+                </svg>
+            </div>
+            <div class="flex flex-col leading-tight">
+                <span class="font-serif italic font-semibold text-white text-base tracking-wide">Uthai Thani</span>
+                <span class="text-[9px] font-light tracking-[0.2em] text-forest-400 uppercase">City Municipality</span>
+            </div>
+        </a>
+
+        <!-- Center Badge (Desktop) -->
+        <div class="hidden md:flex items-center gap-2 glass rounded-full px-4 py-1.5">
+            <span class="ping-dot w-2 h-2 rounded-full bg-gold-400 inline-block"></span>
+            <span class="text-xs font-medium tracking-widest text-gold-400 uppercase ml-2">Top 100 Green
+                Destinations</span>
+            <span class="text-xs text-white/50 ml-1">2024 – 2025</span>
+        </div>
+
+        <!-- Logo Bar (Right) -->
+        <div class="flex items-center gap-3">
+            <div class="glass rounded-xl p-1.5 hidden sm:block">
+                <div class="bg-white/95 rounded-lg px-3 py-1">
+                    <img src="logo.jpg" alt="Partner Logos" class="h-6 w-auto object-contain mix-blend-multiply"
+                        onerror="this.style.display='none'">
+                </div>
+            </div>
+            <!-- Mobile Menu Indicator -->
+            <a href="#portals"
+                class="md:hidden glass-gold rounded-full px-4 py-1.5 text-xs font-medium text-gold-400 tracking-widest hover-interactive cursor-none">
+                เลือกปี
+            </a>
+        </div>
+    </nav>
+
+    <!-- ════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════ -->
+    <section id="hero"
+        class="relative min-h-screen flex flex-col items-start justify-center overflow-hidden snap-section">
+        <!-- Background -->
+        <div class="hero-bg"></div>
+        <div class="hero-gradient"></div>
+
+        <!-- Decorative Orbs -->
+        <div class="orb-green w-[600px] h-[600px] top-[-200px] right-[-100px] opacity-60"></div>
+        <div class="orb-gold w-[400px] h-[400px] bottom-[-100px] left-[10%] opacity-50"></div>
+
+        <!-- Main Content -->
+        <div class="relative z-10 w-full px-6 md:px-12 lg:px-20 pt-24 pb-40 lg:pb-32">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start gap-16 lg:gap-8">
+
+                <!-- Left: Text Content -->
+                <div class="flex-1 max-w-2xl">
+                    <!-- Status Badge -->
+                    <div
+                        class="reveal reveal-delay-1 inline-flex items-center gap-3 glass-gold rounded-full px-5 py-2 mb-8">
+                        <span class="ping-dot w-2.5 h-2.5 rounded-full bg-gold-400 inline-block"></span>
+                        <span class="text-gold-400 text-sm font-medium tracking-wide ml-2">
+                            2 ปีซ้อน · ความสำเร็จต่อเนื่อง (2024–2025)
+                        </span>
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="reveal reveal-delay-2 mb-6">
+                        <span
+                            class="block text-sm md:text-base font-light text-forest-400 tracking-[0.3em] uppercase mb-3">
+                            Uthai Thani, Thailand
+                        </span>
+                        <span class="block text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] text-gradient-green">
+                            Top 100
+                        </span>
+                        <span class="block font-serif italic text-4xl md:text-5xl lg:text-6xl text-gradient-gold mt-1">
+                            Green Destinations
+                        </span>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="reveal reveal-delay-3 text-lg md:text-xl text-white/75 font-light leading-relaxed mb-10 max-w-xl">
+                        <span class="inline-block mr-1">เมืองเก่าอุทัยธานี</span>
+                        <span class="inline-block mr-1">ริมแม่น้ำสะแกกรัง</span>
+                        <span class="inline-block mr-1">ได้รับการประกาศเกียรติคุณ</span>
+                        <span class="inline-block mr-1">ให้เป็นหนึ่งใน</span>
+                        <span class="inline-block mr-1 font-semibold text-forest-400">100 จุดหมายปลายทางสีเขียว</span>
+                        <span class="inline-block mr-1">ระดับโลก</span>
+                        <span class="inline-block mr-1">ต่อเนื่อง 2 ปีซ้อน</span>
+                        <span class="inline-block">จาก Green Destinations Foundation</span>
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="reveal reveal-delay-4 flex flex-wrap items-center gap-4">
+                        <a href="#portals"
+                            class="group relative inline-flex items-center gap-3 bg-forest-500 hover:bg-forest-400 text-forest-950 font-semibold text-sm px-7 py-3.5 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.5)] hover-interactive cursor-none overflow-hidden">
+                            <span class="relative z-10">สำรวจเรื่องราว</span>
+                            <svg class="w-4 h-4 relative z-10 transform group-hover:translate-x-1 transition-transform"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="#awards"
+                            class="inline-flex items-center gap-2 glass-gold text-gold-400 font-medium text-sm px-6 py-3.5 rounded-full hover:bg-gold-500/15 transition-all duration-300 hover-interactive cursor-none">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                            </svg>
+                            ดูตราสัญลักษณ์รางวัล
+                        </a>
+                    </div>
+
+                    <!-- Scroll Hint -->
+                    <div class="reveal reveal-delay-5 mt-14 flex items-center gap-3 text-white/30">
+                        <div class="w-px h-12 bg-gradient-to-b from-transparent via-white/20 to-transparent"></div>
+                        <span class="text-xs tracking-[0.2em] uppercase">เลื่อนลงเพื่อสำรวจ</span>
+                    </div>
+                </div>
+
+                <!-- Right: Award Badges (Hero) -->
+                <div class="reveal reveal-delay-3 flex-shrink-0 flex flex-col items-center gap-6 lg:pt-8">
+                    <!-- Dual Badge Display -->
+                    <div class="relative flex items-end gap-4 md:gap-6">
+                        <!-- 2024 Badge -->
+                        <div class="award-badge award-float-1 cursor-pointer hover-interactive"
+                            onclick="openLightbox('Award2024.jpg')" title="คลิกเพื่อขยาย">
+                            <div
+                                class="absolute inset-0 rounded-full bg-forest-500/20 blur-xl animate-pulse opacity-60">
+                            </div>
+                            <img src="Award2024.jpg" alt="Top 100 Green Destinations 2024"
+                                class="relative w-28 md:w-36 lg:w-40 h-auto drop-shadow-2xl"
+                                style="animation: badgeIn 1s 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) both;">
+                            <div
+                                class="absolute -bottom-2 left-1/2 -translate-x-1/2 glass-gold rounded-full px-3 py-0.5 text-[10px] font-bold text-gold-400 tracking-widest whitespace-nowrap">
+                                2024
+                            </div>
+                        </div>
+
+                        <!-- VS Connector -->
+                        <div class="flex flex-col items-center gap-1 pb-6">
+                            <div class="w-px h-8 bg-gradient-to-b from-transparent via-gold-500/50 to-transparent">
+                            </div>
+                            <div
+                                class="w-8 h-8 rounded-full glass-gold flex items-center justify-center text-gold-400 text-xs font-bold">
+                                &
+                            </div>
+                            <div class="w-px h-8 bg-gradient-to-b from-transparent via-gold-500/50 to-transparent">
+                            </div>
+                        </div>
+
+                        <!-- 2025 Badge -->
+                        <div class="award-badge award-float-2 cursor-pointer hover-interactive"
+                            onclick="openLightbox('Award2025.jpg')" title="คลิกเพื่อขยาย">
+                            <div
+                                class="absolute inset-0 rounded-full bg-forest-400/20 blur-xl animate-pulse opacity-60"
+                                style="animation-delay: 1s">
+                            </div>
+                            <img src="Award2025.jpg" alt="Top 100 Green Destinations 2025"
+                                class="relative w-32 md:w-40 lg:w-44 h-auto drop-shadow-2xl"
+                                style="animation: badgeIn 1s 1.1s cubic-bezier(0.34, 1.56, 0.64, 1) both;">
+                            <div
+                                class="absolute -bottom-2 left-1/2 -translate-x-1/2 glass-gold rounded-full px-3 py-0.5 text-[10px] font-bold text-gold-400 tracking-widest whitespace-nowrap">
+                                2025
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recognition Text -->
+                    <div class="glass rounded-2xl px-6 py-4 text-center max-w-xs">
+                        <p class="text-xs text-white/50 tracking-widest uppercase mb-1">Certified by</p>
+                        <p class="text-sm font-medium text-white/90">Green Destinations Foundation</p>
+                        <p class="text-xs text-forest-400 mt-1">Netherlands · Global Standard</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bottom Fade -->
+        <div
+            class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#030c04] to-transparent z-10 pointer-events-none">
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         STATS SECTION
+    ════════════════════════════════════════ -->
+    <section class="relative z-10 section-forest py-16 md:py-20">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Stat 1 -->
+                <div class="reveal stat-card glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-green mb-1" data-count="2">2</div>
+                    <div class="text-xs text-white/50 tracking-widest uppercase">ปีต่อเนื่อง</div>
+                    <div class="text-xs text-forest-400 mt-1">Consecutive Years</div>
+                </div>
+                <!-- Stat 2 -->
+                <div class="reveal reveal-delay-1 stat-card glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-gold mb-1" data-count="100">100</div>
+                    <div class="text-xs text-white/50 tracking-widest uppercase">อันดับโลก</div>
+                    <div class="text-xs text-gold-400 mt-1">Global Top 100</div>
+                </div>
+                <!-- Stat 3 -->
+                <div class="reveal reveal-delay-2 stat-card glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-green mb-1">GD</div>
+                    <div class="text-xs text-white/50 tracking-widest uppercase">มาตรฐาน</div>
+                    <div class="text-xs text-forest-400 mt-1">Foundation Standard</div>
+                </div>
+                <!-- Stat 4 -->
+                <div class="reveal reveal-delay-3 stat-card glass rounded-2xl p-6 text-center">
+                    <div class="text-3xl md:text-4xl font-bold shimmer-text mb-1">🌿</div>
+                    <div class="text-xs text-white/50 tracking-widest uppercase">ความยั่งยืน</div>
+                    <div class="text-xs text-forest-400 mt-1">Sustainability</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         AWARD SHOWCASE SECTION
+    ════════════════════════════════════════ -->
+    <section id="awards" class="relative z-10 section-forest py-20 md:py-28 snap-section">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-16">
+                <span
+                    class="inline-block text-xs font-medium tracking-[0.3em] text-forest-400 uppercase mb-4">Recognition</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    <span class="text-gradient-green">ตราสัญลักษณ์</span>
+                    <span class="font-serif italic text-gradient-gold ml-2">แห่งเกียรติยศ</span>
+                </h2>
+                <div class="decor-divider my-5"></div>
+                <p class="text-white/60 font-light max-w-xl mx-auto text-base leading-relaxed">
+                    <span class="inline-block mr-1">รางวัลระดับนานาชาติ</span>
+                    <span class="inline-block mr-1">ที่ยืนยันถึงความมุ่งมั่น</span>
+                    <span class="inline-block mr-1">ของเทศบาลเมืองอุทัยธานี</span>
+                    <span class="inline-block">ในการพัฒนาการท่องเที่ยวอย่างยั่งยืน</span>
+                </p>
+            </div>
+
+            <!-- Award Cards Grid -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- 2024 Award Card -->
+                <div class="reveal reveal-delay-1 group">
+                    <div
+                        class="glass rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 transition-all duration-500 hover:border-forest-500/30 hover:shadow-[0_0_60px_rgba(34,197,94,0.1)]">
+                        <div class="flex-shrink-0 relative">
+                            <div
+                                class="absolute inset-0 rounded-full bg-forest-500/15 blur-2xl group-hover:bg-forest-500/25 transition-all duration-500">
+                            </div>
+                            <img src="Award2024.jpg" alt="2024 Award"
+                                class="relative w-32 h-32 object-contain drop-shadow-2xl cursor-pointer hover-interactive group-hover:scale-105 transition-transform duration-500"
+                                onclick="openLightbox('Award2024.jpg')">
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div
+                                class="inline-block text-xs font-bold tracking-[0.25em] text-forest-400 uppercase mb-2 glass-gold px-3 py-1 rounded-full">
+                                The Beginning
+                            </div>
+                            <h3 class="text-2xl font-serif italic font-semibold text-white mb-2">
+                                2024 Edition
+                            </h3>
+                            <p class="text-white/60 text-sm font-light leading-relaxed mb-4">
+                                <span class="inline-block mr-1">จุดเริ่มต้นแห่งความสำเร็จ</span>
+                                <span class="inline-block mr-1">กับรางวัลระดับโลกครั้งแรก</span>
+                                <span class="inline-block">ของชาวอุทัยธานี</span>
+                            </p>
+                            <a href="https://uthai-top100greendes2024.netlify.app" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-forest-400 text-sm font-medium hover:text-forest-300 transition-colors hover-interactive cursor-none group/link">
+                                <span>สำรวจเรื่องราว 2024</span>
+                                <svg class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 Award Card -->
+                <div class="reveal reveal-delay-2 group">
+                    <div
+                        class="glass rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 transition-all duration-500 hover:border-gold-500/30 hover:shadow-[0_0_60px_rgba(212,175,55,0.1)]">
+                        <div class="flex-shrink-0 relative">
+                            <div
+                                class="absolute inset-0 rounded-full bg-gold-500/10 blur-2xl group-hover:bg-gold-500/20 transition-all duration-500">
+                            </div>
+                            <img src="Award2025.jpg" alt="2025 Award"
+                                class="relative w-32 h-32 object-contain drop-shadow-2xl cursor-pointer hover-interactive group-hover:scale-105 transition-transform duration-500"
+                                onclick="openLightbox('Award2025.jpg')">
+                        </div>
+                        <div class="flex-1 text-center md:text-left">
+                            <div
+                                class="inline-block text-xs font-bold tracking-[0.25em] text-gold-400 uppercase mb-2 glass-gold px-3 py-1 rounded-full">
+                                New Chapter
+                            </div>
+                            <h3 class="text-2xl font-serif italic font-semibold text-white mb-2">
+                                2025 Edition
+                            </h3>
+                            <p class="text-white/60 text-sm font-light leading-relaxed mb-4">
+                                <span class="inline-block mr-1">ก้าวต่อไปด้วยมาตรฐานที่สูงขึ้น</span>
+                                <span class="inline-block mr-1">ตอกย้ำความยั่งยืน</span>
+                                <span class="inline-block">ของเมืองอุทัยธานี</span>
+                            </p>
+                            <a href="https://uthai-top100greendes2025.netlify.app" target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center gap-2 text-gold-400 text-sm font-medium hover:text-gold-300 transition-colors hover-interactive cursor-none group/link">
+                                <span>สำรวจเรื่องราว 2025</span>
+                                <svg class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         PORTAL CARDS SECTION (Main Feature)
+    ════════════════════════════════════════ -->
+    <section id="portals" class="relative z-10 section-forest py-20 md:py-28 snap-section">
+        <!-- Background Image Accent -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <img src="contents/market-old-town.jpg" alt=""
+                class="absolute inset-0 w-full h-full object-cover opacity-[0.04] saturate-0">
+        </div>
+
+        <div class="relative max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+            <!-- Section Header -->
+            <div class="reveal text-center mb-16">
+                <span
+                    class="inline-block text-xs font-medium tracking-[0.3em] text-gold-400 uppercase mb-4">Portal</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+                    <span class="text-white">เลือก</span>
+                    <span class="font-serif italic text-gradient-gold ml-2">เรื่องราวของคุณ</span>
+                </h2>
+                <div class="decor-divider my-5"></div>
+                <p class="text-white/60 font-light max-w-lg mx-auto text-base">
+                    <span class="inline-block mr-1">สองบทแห่งความภาคภูมิใจ</span>
+                    <span class="inline-block mr-1">สองปีแห่งความยั่งยืน</span>
+                    <span class="inline-block">เลือกสำรวจเรื่องราวที่คุณสนใจ</span>
+                </p>
+            </div>
+
+            <!-- Portal Cards Grid -->
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-10 perspective-[1200px]">
+
+                <!-- ── 2024 Portal Card ── -->
+                <div class="reveal reveal-delay-1 relative">
+                    <!-- Floating Award Badge -->
+                    <div
+                        class="absolute -top-5 -left-3 z-30 cursor-pointer hover-interactive award-badge award-float-1"
+                        onclick="openLightbox('Award2024.jpg')">
+                        <div class="absolute inset-0 bg-forest-500/30 rounded-full blur-lg"></div>
+                        <img src="Award2024.jpg" alt="2024 Award"
+                            class="relative w-16 md:w-20 h-auto drop-shadow-xl bg-white rounded-full p-1">
+                    </div>
+
+                    <!-- Card -->
+                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer"
+                        class="portal-card glass-dark block w-full aspect-[4/5] hover-interactive cursor-none"
+                        data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-glare="true"
+                        data-tilt-max-glare="0.25" data-tilt-perspective="1000">
+
+                        <!-- Background Image -->
+                        <img src="contents/market-old-town.jpg" alt="ตลาดเก่าบ้านสะแกกรัง"
+                            class="absolute inset-0 w-full h-full object-cover card-bg-img">
+
+                        <!-- Gradient Overlays -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-forest-950/95 via-forest-950/40 to-forest-950/10">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-forest-800/20 to-transparent"></div>
+
+                        <!-- Top Tag -->
+                        <div class="absolute top-6 right-6 z-10">
+                            <span
+                                class="glass-gold text-gold-400 text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full">
+                                The Beginning
+                            </span>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body absolute inset-0 p-8 flex flex-col justify-end">
+                            <div
+                                class="text-forest-400 text-xs font-bold tracking-[0.25em] uppercase mb-3 group-hover:translate-x-2 transition-transform duration-500">
+                                Green Destinations Stories
+                            </div>
+                            <h3 class="card-year-label text-5xl md:text-6xl font-serif italic font-bold text-white mb-1">
+                                2024
+                            </h3>
+                            <p class="text-2xl font-light text-white/70 mb-4">Edition</p>
+
+                            <p class="card-cta text-white/70 text-sm font-light leading-relaxed mb-5">
+                                <span class="inline-block mr-1">จุดเริ่มต้นแห่งความสำเร็จ</span>
+                                <span class="inline-block mr-1">กับรางวัลระดับโลกครั้งแรก</span>
+                                <span class="inline-block">ของชาวอุทัยธานี</span>
+                            </p>
+
+                            <div
+                                class="flex items-center gap-3 text-sm font-semibold text-white group-hover:text-forest-400 transition-colors duration-300">
+                                <span>Explore Journey</span>
+                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- ── 2025 Portal Card ── -->
+                <div class="reveal reveal-delay-2 relative md:mt-12">
+                    <!-- Floating Award Badge -->
+                    <div
+                        class="absolute -top-5 -left-3 z-30 cursor-pointer hover-interactive award-badge award-float-2"
+                        onclick="openLightbox('Award2025.jpg')">
+                        <div class="absolute inset-0 bg-gold-500/20 rounded-full blur-lg"></div>
+                        <img src="Award2025.jpg" alt="2025 Award"
+                            class="relative w-16 md:w-20 h-auto drop-shadow-xl bg-white rounded-full p-1">
+                    </div>
+
+                    <!-- Card -->
+                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer"
+                        class="portal-card glass-dark block w-full aspect-[4/5] hover-interactive cursor-none"
+                        data-tilt data-tilt-max="12" data-tilt-speed="500" data-tilt-glare="true"
+                        data-tilt-max-glare="0.25" data-tilt-perspective="1000">
+
+                        <!-- Background Image -->
+                        <img src="contents/Per01.jpg" alt="วิถีชีวิตชาวแพสะแกกรัง"
+                            class="absolute inset-0 w-full h-full object-cover card-bg-img">
+
+                        <!-- Gradient Overlays -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-forest-950/95 via-forest-950/40 to-forest-950/10">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-br from-gold-600/10 to-transparent"></div>
+
+                        <!-- Top Tag -->
+                        <div class="absolute top-6 right-6 z-10">
+                            <span
+                                class="bg-gold-500 text-forest-950 text-[10px] font-bold tracking-[0.2em] uppercase px-3 py-1.5 rounded-full">
+                                New Chapter
+                            </span>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body absolute inset-0 p-8 flex flex-col justify-end">
+                            <div
+                                class="text-gold-400 text-xs font-bold tracking-[0.25em] uppercase mb-3 group-hover:translate-x-2 transition-transform duration-500">
+                                Green Destinations Stories
+                            </div>
+                            <h3 class="card-year-label text-5xl md:text-6xl font-serif italic font-bold text-white mb-1">
+                                2025
+                            </h3>
+                            <p class="text-2xl font-light text-white/70 mb-4">Edition</p>
+
+                            <p class="card-cta text-white/70 text-sm font-light leading-relaxed mb-5">
+                                <span class="inline-block mr-1">ก้าวต่อไปด้วยมาตรฐานที่สูงขึ้น</span>
+                                <span class="inline-block mr-1">ตอกย้ำความยั่งยืน</span>
+                                <span class="inline-block">ของเมืองอุทัยธานี</span>
+                            </p>
+
+                            <div
+                                class="flex items-center gap-3 text-sm font-semibold text-white group-hover:text-gold-400 transition-colors duration-300">
+                                <span>Explore Vision</span>
+                                <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
+                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Bottom Hint -->
+            <div class="reveal text-center mt-12">
+                <p class="text-xs text-white/30 tracking-widest uppercase">
+                    คลิกที่การ์ดเพื่อเข้าสู่เว็บไซต์ · Click card to explore
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         STICKER RIBBON SECTION
+    ════════════════════════════════════════ -->
+    <section class="relative z-10 py-12 overflow-hidden">
+        <div class="reveal text-center mb-8">
+            <span class="text-xs text-white/30 tracking-[0.3em] uppercase">ร้านค้าสีเขียวในชุมชน · Green Local Shops</span>
+        </div>
+
+        <!-- Ribbon -->
+        <div class="relative overflow-hidden py-3">
+            <!-- Edge Fades -->
+            <div
+                class="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#030c04] to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#030c04] to-transparent z-10 pointer-events-none">
+            </div>
+
+            <div class="sticker-ribbon-track" id="sticker-ribbon">
+                <!-- Set 1 -->
+                <div class="sticker-item" style="transform: rotate(-3deg);">
+                    <img src="sticker/533075.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(2deg);">
+                    <img src="sticker/533077.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-5deg);">
+                    <img src="sticker/533078.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(4deg);">
+                    <img src="sticker/533080.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-2deg);">
+                    <img src="sticker/533081.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(3deg);">
+                    <img src="sticker/533082.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-4deg);">
+                    <img src="sticker/533083.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <!-- Set 2 (Duplicate for seamless loop) -->
+                <div class="sticker-item" style="transform: rotate(-3deg);">
+                    <img src="sticker/533075.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(2deg);">
+                    <img src="sticker/533077.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-5deg);">
+                    <img src="sticker/533078.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(4deg);">
+                    <img src="sticker/533080.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-2deg);">
+                    <img src="sticker/533081.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(3deg);">
+                    <img src="sticker/533082.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+                <div class="sticker-item" style="transform: rotate(-4deg);">
+                    <img src="sticker/533083.jpg" class="sticker-photo" alt="Green Shop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         ABOUT / CONTEXT SECTION
+    ════════════════════════════════════════ -->
+    <section class="relative z-10 section-forest py-20 md:py-28">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Image -->
+                <div class="reveal relative">
+                    <div class="absolute -inset-4 bg-forest-500/5 rounded-3xl blur-2xl"></div>
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/3]">
+                        <img src="contents/D1.jpg" alt="เมืองเก่าอุทัยธานีมุมสูง"
+                            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest-950/60 to-transparent"></div>
+                        <!-- Caption -->
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <div class="glass rounded-xl px-4 py-2 text-center">
+                                <p class="text-xs text-white/70 tracking-wide">เมืองเก่าอุทัยธานี · แม่น้ำสะแกกรัง</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div class="reveal reveal-delay-2">
+                    <span
+                        class="inline-block text-xs font-medium tracking-[0.3em] text-forest-400 uppercase mb-5">About
+                        the Award</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        <span class="text-white">ทำไม</span>
+                        <span class="text-gradient-green ml-2">อุทัยธานี</span>
+                        <span class="block font-serif italic text-gradient-gold mt-1">จึงได้รับรางวัลนี้?</span>
+                    </h2>
+                    <div class="decor-divider mb-6" style="margin-left: 0;"></div>
+
+                    <div class="space-y-5 text-white/70 font-light leading-relaxed">
+                        <p>
+                            <span class="inline-block mr-1">Green Destinations Foundation</span>
+                            <span class="inline-block mr-1">เป็นองค์กรระหว่างประเทศ</span>
+                            <span class="inline-block mr-1">จากประเทศเนเธอร์แลนด์</span>
+                            <span class="inline-block mr-1">ที่ประเมินและรับรอง</span>
+                            <span class="inline-block">จุดหมายปลายทางการท่องเที่ยวยั่งยืนทั่วโลก</span>
+                        </p>
+                        <p>
+                            <span class="inline-block mr-1">เมืองเก่าอุทัยธานี</span>
+                            <span class="inline-block mr-1">ได้รับการคัดเลือก</span>
+                            <span class="inline-block mr-1">จากความโดดเด่นใน</span>
+                            <span class="inline-block mr-1 font-medium text-forest-400">วิถีชีวิตชาวแพสะแกกรัง</span>
+                            <span class="inline-block mr-1">การอนุรักษ์มรดกทางวัฒนธรรม</span>
+                            <span class="inline-block">และการพัฒนาเศรษฐกิจชุมชนอย่างยั่งยืน</span>
+                        </p>
+                        <p>
+                            <span class="inline-block mr-1">การได้รับรางวัลต่อเนื่อง 2 ปีซ้อน</span>
+                            <span class="inline-block mr-1">สะท้อนถึงความมุ่งมั่น</span>
+                            <span class="inline-block mr-1">ของเทศบาลเมืองอุทัยธานี</span>
+                            <span class="inline-block">ในการรักษามาตรฐานสีเขียวระดับโลก</span>
+                        </p>
+                    </div>
+
+                    <!-- Feature Chips -->
+                    <div class="flex flex-wrap gap-2 mt-8">
+                        <span class="glass-gold text-gold-400 text-xs px-3 py-1.5 rounded-full">🌿 วิถีชีวิตยั่งยืน</span>
+                        <span class="glass text-forest-400 text-xs px-3 py-1.5 rounded-full">🏛️ มรดกวัฒนธรรม</span>
+                        <span class="glass text-white/60 text-xs px-3 py-1.5 rounded-full">🐟 ปลาแรด & ดอกสุพรรณิการ์</span>
+                        <span class="glass text-forest-400 text-xs px-3 py-1.5 rounded-full">🌊 แม่น้ำสะแกกรัง</span>
+                        <span class="glass-gold text-gold-400 text-xs px-3 py-1.5 rounded-full">🌳 ป่าห้วยขาแข้ง</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         PARTNER LOGOS SECTION
+    ════════════════════════════════════════ -->
+    <section class="relative z-10 py-14 border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 md:px-12 lg:px-20">
+            <div class="reveal text-center mb-8">
+                <span class="text-xs text-white/30 tracking-[0.3em] uppercase">Recognized by Global Standards</span>
+            </div>
+            <div class="reveal reveal-delay-1 glass rounded-2xl p-6 flex items-center justify-center">
+                <div class="bg-white/95 rounded-xl px-6 py-3 w-full max-w-xl">
+                    <img src="logo.jpg" alt="Partner Organizations" class="w-full h-auto object-contain mix-blend-multiply"
+                        onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════ -->
+    <footer class="relative z-10 border-t border-white/8 py-10">
+        <div class="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Brand -->
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 rounded-full border border-gold-500/30 flex items-center justify-center glass-gold">
+                        <svg class="w-3.5 h-3.5 text-gold-400" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            <path d="M8.21 13.89L7 23l5-3 5 3-1.21-9.11" />
+                            <path d="M15 7h-6l-2 5h10l-2-5z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-white/80">เทศบาลเมืองอุทัยธานี</p>
+                        <p class="text-xs text-white/40">Uthai Thani Town Municipality</p>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div class="flex items-center gap-6 text-xs text-white/40">
+                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank"
+                        class="hover:text-forest-400 transition-colors hover-interactive cursor-none">2024 Edition</a>
+                    <span class="text-white/20">·</span>
+                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank"
+                        class="hover:text-gold-400 transition-colors hover-interactive cursor-none">2025 Edition</a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-xs text-white/30 tracking-widest uppercase text-center md:text-right">
+                    &copy; <span id="current-year">2026</span> Top 100 Green Destinations<br>
+                    <span class="text-gold-500/60">Computer Scientist · Uthai Thani Municipality</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ════════════════════════════════════════
+         LIGHTBOX MODAL
+    ════════════════════════════════════════ -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <div class="flex flex-col items-center justify-center h-full w-full p-6">
+            <img id="lightbox-img" src="" alt="Award Badge">
+            <p class="text-white/50 mt-6 text-sm tracking-widest uppercase font-light">คลิกเพื่อปิด · Click to close</p>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════
+         JAVASCRIPT
+    ════════════════════════════════════════ -->
+    <script>
+        // ── Custom Cursor ──────────────────────────────────────────────
+        const cursorDot = document.getElementById('cursor-dot');
+        const cursorRing = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.12;
+            ringY += (mouseY - ringY) * 0.12;
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('.hover-interactive').forEach(el => {
+            el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+        });
+
+        // ── Fireflies Canvas ───────────────────────────────────────────
+        const canvas = document.getElementById('fireflies-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        class Firefly {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.2 + 0.4;
+                this.speedX = (Math.random() - 0.5) * 0.6;
+                this.speedY = (Math.random() - 0.5) * 0.6;
+                this.life = Math.random() * 200 + 100;
+                this.maxLife = this.life;
+                // Color: green or gold
+                const isGold = Math.random() > 0.6;
+                this.r = isGold ? 212 : 74;
+                this.g = isGold ? 175 : 222;
+                this.b = isGold ? 55 : 128;
+                this.baseAlpha = Math.random() * 0.5 + 0.15;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY - 0.15; // gentle upward drift
+                this.life--;
+
+                // Wrap edges
+                if (this.x < 0) this.x = canvas.width;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.y < 0) {
+                    this.y = canvas.height;
+                    this.x = Math.random() * canvas.width;
+                }
+                if (this.life <= 0) this.reset();
+            }
+            draw() {
+                const lifeRatio = this.life / this.maxLife;
+                const alpha = this.baseAlpha * Math.sin(lifeRatio * Math.PI);
+
+                ctx.save();
+                ctx.shadowBlur = 12;
+                ctx.shadowColor = `rgba(${this.r},${this.g},${this.b},${alpha})`;
+                ctx.fillStyle = `rgba(${this.r},${this.g},${this.b},${alpha})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const fireflies = Array.from({ length: 90 }, () => new Firefly());
+
+        function animateFireflies() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            fireflies.forEach(f => { f.update(); f.draw(); });
+            requestAnimationFrame(animateFireflies);
+        }
+        animateFireflies();
+
+        // ── Scroll Progress ────────────────────────────────────────────
+        const progressBar = document.getElementById('scroll-progress');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        });
+
+        // ── Navbar Scroll Effect ───────────────────────────────────────
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ── Scroll Reveal ──────────────────────────────────────────────
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── Counter Animation ──────────────────────────────────────────
+        function animateCounter(el, target, duration = 1800) {
+            let start = 0;
+            const startTime = performance.now();
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease out cubic
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * target);
+                el.textContent = current;
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                } else {
+                    el.textContent = target;
+                }
+            }
+            el.textContent = '0';
+            requestAnimationFrame(update);
+        }
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    if (!isNaN(target)) animateCounter(el, target);
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+        // ── Lightbox ───────────────────────────────────────────────────
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lb.style.display = 'flex';
+            requestAnimationFrame(() => {
+                lb.classList.add('active');
+            });
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lb = document.getElementById('lightbox');
+            lb.classList.remove('active');
+            setTimeout(() => {
+                lb.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 400);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // ── Sticker Click ──────────────────────────────────────────────
+        document.querySelectorAll('.sticker-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const src = item.querySelector('img').src;
+                openLightbox(src);
+            });
+        });
+
+        // ── Year ───────────────────────────────────────────────────────
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // ── Vanilla Tilt Init ──────────────────────────────────────────
+        if (window.innerWidth > 768 && typeof VanillaTilt !== 'undefined') {
+            VanillaTilt.init(document.querySelectorAll('[data-tilt]'), {
+                max: 12,
+                speed: 500,
+                glare: true,
+                'max-glare': 0.25,
+                perspective: 1000,
+            });
+        }
+    </script>
+</body>
+
+</html>
