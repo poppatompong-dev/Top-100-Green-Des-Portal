@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="th" data-theme="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>อุทัยธานี · Top 100 Green Destinations | เมืองสีเขียวระดับโลก</title>
-    <meta name="description" content="เทศบาลเมืองอุทัยธานี ได้รับการรับรอง Top 100 Green Destinations จาก Green Destinations Foundation ประเทศเนเธอร์แลนด์ ปี 2024 และ 2025">
-    <meta name="keywords" content="อุทัยธานี, Green Destinations, เที่ยวสีเขียว, ท่องเที่ยวยั่งยืน, Uthai Thani, sustainable tourism">
+    <meta name="description"
+        content="เทศบาลเมืองอุทัยธานี ได้รับการรับรอง Top 100 Green Destinations จาก Green Destinations Foundation ประเทศเนเธอร์แลนด์ ปี 2024 และ 2025">
+    <meta name="keywords"
+        content="อุทัยธานี, Green Destinations, เที่ยวสีเขียว, ท่องเที่ยวยั่งยืน, Uthai Thani, sustainable tourism">
     <meta name="author" content="เทศบาลเมืองอุทัยธานี">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0a1a0a">
@@ -28,10 +31,12 @@
     <!-- Google Fonts with font-display:swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700;800&family=Playfair+Display:wght@700;900&display=swap"
+        rel="stylesheet">
     <!-- Vanilla Tilt -->
     <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js"></script>
-    
+
     <style>
         /* ── CI Color Variables ────────────────────────────────── */
         :root {
@@ -48,41 +53,48 @@
         /* ── Dark Theme (default) ────────────────────────────────── */
         [data-theme="dark"] {
             --bg-primary: linear-gradient(135deg, #0a1a0a 0%, #0f2e1a 50%, #0a1a0a 100%);
-            --bg-card: rgba(255,255,255,0.05);
+            --bg-card: rgba(255, 255, 255, 0.05);
             --bg-nav: rgba(10, 26, 10, 0.85);
             --text-primary: #f0fdf4;
             --text-secondary: #bbf7d0;
             --text-muted: #6b7280;
-            --border-color: rgba(255,255,255,0.1);
+            --border-color: rgba(255, 255, 255, 0.1);
             --card-overlay: rgba(10, 26, 10, 0.88);
-            --card-shadow: rgba(34,197,94,0.15);
-            --toggle-bg: rgba(255,255,255,0.08);
-            --toggle-border: rgba(255,255,255,0.15);
-            --badge-bg: rgba(124,58,237,0.15);
-            --badge-border: rgba(124,58,237,0.4);
+            --card-shadow: rgba(34, 197, 94, 0.15);
+            --toggle-bg: rgba(255, 255, 255, 0.08);
+            --toggle-border: rgba(255, 255, 255, 0.15);
+            --badge-bg: rgba(124, 58, 237, 0.15);
+            --badge-border: rgba(124, 58, 237, 0.4);
             --section-heading: #f0fdf4;
         }
 
         /* ── Light Theme ────────────────────────────────── */
         [data-theme="light"] {
             --bg-primary: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0f9ff 100%);
-            --bg-card: rgba(255,255,255,0.75);
-            --bg-nav: rgba(255,255,255,0.92);
+            --bg-card: rgba(255, 255, 255, 0.75);
+            --bg-nav: rgba(255, 255, 255, 0.92);
             --text-primary: #052e16;
             --text-secondary: #166534;
             --text-muted: #6b7280;
-            --border-color: rgba(34,197,94,0.2);
+            --border-color: rgba(34, 197, 94, 0.2);
             --card-overlay: rgba(5, 46, 22, 0.82);
-            --card-shadow: rgba(124,58,237,0.12);
-            --toggle-bg: rgba(34,197,94,0.08);
-            --toggle-border: rgba(34,197,94,0.3);
-            --badge-bg: rgba(245,158,11,0.12);
-            --badge-border: rgba(245,158,11,0.4);
+            --card-shadow: rgba(124, 58, 237, 0.12);
+            --toggle-bg: rgba(34, 197, 94, 0.08);
+            --toggle-border: rgba(34, 197, 94, 0.3);
+            --badge-bg: rgba(245, 158, 11, 0.12);
+            --badge-border: rgba(245, 158, 11, 0.4);
             --section-heading: #052e16;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Prompt', sans-serif;
@@ -95,33 +107,53 @@
 
         /* ── Fireflies Canvas ────────────────────────────────── */
         #fireflies-canvas {
-            position: fixed; top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none; z-index: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
         }
 
         /* ── Custom Cursor ────────────────────────────────── */
         .cursor-dot {
-            position: fixed; width: 8px; height: 8px;
-            background: var(--ci-green); border-radius: 50%;
-            pointer-events: none; z-index: 9999;
-            box-shadow: 0 0 10px rgba(34,197,94,0.6);
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            background: var(--ci-green);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.6);
         }
+
         .cursor-outline {
-            position: fixed; width: 30px; height: 30px;
-            border: 2px solid rgba(34,197,94,0.5); border-radius: 50%;
-            pointer-events: none; z-index: 9998;
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(34, 197, 94, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
             transition: all 0.1s ease-out;
         }
 
         /* ── Content Layer ────────────────────────────────── */
-        .content { position: relative; z-index: 1; }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
 
         /* ── Scroll Progress ────────────────────────────────── */
         .scroll-progress {
-            position: fixed; top: 0; left: 0; height: 3px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
             background: linear-gradient(90deg, var(--ci-green), var(--ci-gold), var(--ci-purple));
-            z-index: 1000; box-shadow: 0 0 10px rgba(34,197,94,0.5);
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
         }
 
         /* ── Glass ────────────────────────────────── */
@@ -141,169 +173,472 @@
 
         /* ── Toggle Controls ────────────────────────────────── */
         .ctrl-btn {
-            display: inline-flex; align-items: center; gap: 6px;
-            padding: 6px 14px; border-radius: 20px; cursor: pointer;
-            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.02em;
-            background: var(--toggle-bg); border: 1px solid var(--toggle-border);
-            color: var(--text-primary); transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            background: var(--toggle-bg);
+            border: 1px solid var(--toggle-border);
+            color: var(--text-primary);
+            transition: all 0.25s ease;
             user-select: none;
         }
-        .ctrl-btn:hover { background: rgba(34,197,94,0.15); border-color: var(--ci-green); color: var(--ci-green); }
+
+        .ctrl-btn:hover {
+            background: rgba(34, 197, 94, 0.15);
+            border-color: var(--ci-green);
+            color: var(--ci-green);
+        }
 
         /* ── Text Gradients ────────────────────────────────── */
         .text-green {
             background: linear-gradient(135deg, var(--ci-green), var(--ci-green-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .text-gold {
             background: linear-gradient(135deg, var(--ci-gold), var(--ci-gold-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .text-purple {
             background: linear-gradient(135deg, var(--ci-purple), var(--ci-purple-light));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         /* ── Award Badge ────────────────────────────────── */
         .award-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 6px 16px; border-radius: 20px;
-            background: var(--badge-bg); border: 1px solid var(--badge-border);
-            font-size: 0.78rem; font-weight: 600; color: var(--ci-purple-light);
-            letter-spacing: 0.05em; text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--ci-purple-light);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
-        [data-theme="light"] .award-badge { color: var(--ci-purple); }
+
+        [data-theme="light"] .award-badge {
+            color: var(--ci-purple);
+        }
 
         /* ── Portal Cards ────────────────────────────────── */
         .portal-card {
-            position: relative; height: 440px; border-radius: 24px;
-            overflow: hidden; cursor: pointer;
+            position: relative;
+            height: 440px;
+            border-radius: 24px;
+            overflow: hidden;
+            cursor: pointer;
             transform-style: preserve-3d;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             border: 1px solid var(--border-color);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
+
         .portal-card::before {
-            content: ''; position: absolute; inset: 0;
-            background: rgba(0,0,0,0.38); z-index: 2;
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.38);
+            z-index: 2;
             transition: all 0.4s ease;
         }
-        .portal-card:hover { border-color: rgba(34,197,94,0.4); box-shadow: 0 12px 48px var(--card-shadow); }
-        .portal-card:hover::before { background: rgba(0,0,0,0.12); }
+
+        .portal-card:hover {
+            border-color: rgba(34, 197, 94, 0.4);
+            box-shadow: 0 12px 48px var(--card-shadow);
+        }
+
+        .portal-card:hover::before {
+            background: rgba(0, 0, 0, 0.12);
+        }
 
         .portal-card-content {
-            position: absolute; inset: 0; z-index: 3;
-            display: flex; flex-direction: column; justify-content: flex-end;
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             padding: 32px 28px;
             background: linear-gradient(180deg, transparent 20%, var(--card-overlay) 100%);
         }
+
         .portal-card-year {
-            font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 900;
             margin-bottom: 4px;
             background: linear-gradient(135deg, var(--ci-green), var(--ci-gold));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
         .portal-card-subtitle {
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-            text-transform: uppercase; color: var(--ci-purple-light);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--ci-purple-light);
             margin-bottom: 8px;
         }
+
         .portal-card-title {
-            font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; color: #ffffff;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #ffffff;
         }
+
         .portal-card-desc {
-            font-size: 0.92rem; color: rgba(255,255,255,0.75);
-            margin-bottom: 20px; line-height: 1.6;
+            font-size: 0.92rem;
+            color: rgba(255, 255, 255, 0.75);
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
+
         .portal-card-cta {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 22px; border-radius: 12px; font-weight: 700;
-            font-size: 0.9rem; transition: all 0.3s ease; width: fit-content;
-            background: rgba(34,197,94,0.18); border: 1px solid rgba(34,197,94,0.55);
-            color: #4ade80; text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            width: fit-content;
+            background: rgba(34, 197, 94, 0.18);
+            border: 1px solid rgba(34, 197, 94, 0.55);
+            color: #4ade80;
+            text-decoration: none;
         }
-        .portal-card-cta:hover { background: rgba(34,197,94,0.35); border-color: var(--ci-green); color: #fff; gap: 12px; }
+
+        .portal-card-cta:hover {
+            background: rgba(34, 197, 94, 0.35);
+            border-color: var(--ci-green);
+            color: #fff;
+            gap: 12px;
+        }
 
         /* ── Marquee Gallery ────────────────────────────────── */
         .marquee-wrap {
-            position: relative; width: 100%; overflow: hidden;
+            position: relative;
+            width: 100%;
+            overflow: hidden;
             padding: 16px 0;
             mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
             -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         }
+
         .marquee-track {
-            display: flex; gap: 20px; width: max-content;
+            display: flex;
+            gap: 20px;
+            width: max-content;
             animation: scroll 40s linear infinite;
         }
-        .marquee-track:hover { animation-play-state: paused; }
-        
-        .marquee-item {
-            width: 160px; height: 160px; border-radius: 16px; overflow: hidden;
-            flex-shrink: 0; position: relative; cursor: pointer;
-            border: 2px solid var(--border-color); transition: all 0.3s ease;
+
+        .marquee-track:hover {
+            animation-play-state: paused;
         }
+
+        .marquee-item {
+            width: 160px;
+            height: 160px;
+            border-radius: 16px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
         .marquee-item img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.4s ease;
         }
+
         .marquee-item:hover {
-            border-color: var(--ci-green); box-shadow: 0 8px 24px rgba(34,197,94,0.25);
+            border-color: var(--ci-green);
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.25);
             transform: translateY(-4px);
         }
-        .marquee-item:hover img { transform: scale(1.1); }
-        .marquee-badge {
-            position: absolute; inset: 0; background: rgba(0,0,0,0.5);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: opacity 0.3s ease; color: #fff;
-            font-size: 0.8rem; font-weight: 600;
+
+        .marquee-item:hover img {
+            transform: scale(1.1);
         }
-        .marquee-item:hover .marquee-badge { opacity: 1; }
+
+        .marquee-badge {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .marquee-item:hover .marquee-badge {
+            opacity: 1;
+        }
 
         @keyframes scroll {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(calc(-50% - 10px)); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-50% - 10px));
+            }
         }
 
         /* ── Lightbox ────────────────────────────────── */
         #lightbox {
-            position: fixed; inset: 0; z-index: 8000;
-            background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+            position: fixed;
+            inset: 0;
+            z-index: 8000;
+            background: rgba(0, 0, 0, 0.88);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
-        #lightbox.open { opacity: 1; pointer-events: all; }
-        #lightbox img { max-width: 88vw; max-height: 88vh; border-radius: 16px; box-shadow: 0 0 80px rgba(34,197,94,0.2); }
+
+        #lightbox.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        #lightbox img {
+            max-width: 88vw;
+            max-height: 88vh;
+            border-radius: 16px;
+            box-shadow: 0 0 80px rgba(34, 197, 94, 0.2);
+        }
+
         #lightbox-close {
-            position: absolute; top: 24px; right: 28px;
-            font-size: 2rem; color: #fff; cursor: pointer; line-height: 1;
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            line-height: 1;
         }
 
         /* ── Animations ────────────────────────────────── */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(28px); }
-            to   { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(28px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .fade-up { opacity: 0; animation: fadeInUp 0.7s ease-out forwards; }
+
+        .fade-up {
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-out forwards;
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            .fade-up { animation: none; opacity: 1; }
+            .fade-up {
+                animation: none;
+                opacity: 1;
+            }
+        }
+
+        /* ── Nav Logo ────────────────────────────────── */
+        .nav-logo-wrap {
+            position: relative;
+            flex-shrink: 0;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 10px;
+            padding: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] .nav-logo-wrap {
+            background: rgba(34, 197, 94, 0.08);
+            border-color: rgba(34, 197, 94, 0.2);
+        }
+
+        .nav-logo {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            object-fit: contain;
+            will-change: transform;
+            filter: contrast(1.08) saturate(1.15);
+            display: block;
+        }
+
+        /* ── Primary Indicators CTA Button ────────────────────────────────── */
+        @keyframes shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes ctaPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.18);
+            }
+        }
+
+        .indicators-cta-btn {
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 48px;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            max-width: 680px;
+            width: 100%;
+            justify-content: center;
+            background: linear-gradient(110deg,
+                    var(--ci-gold-dark, #d97706) 0%,
+                    var(--ci-gold) 30%,
+                    var(--ci-green) 60%,
+                    var(--ci-gold) 80%,
+                    var(--ci-gold-dark, #d97706) 100%);
+            background-size: 200% auto;
+            border: none;
+            color: #ffffff;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+            transition: gap 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
+            animation: shimmer 4s linear infinite, ctaPulse 3s ease-in-out 1.2s infinite;
+        }
+
+        .indicators-cta-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.18) 40%,
+                    rgba(255, 255, 255, 0.06) 50%,
+                    transparent 100%);
+            background-size: 200% auto;
+            animation: shimmer 4s linear infinite;
+            pointer-events: none;
+        }
+
+        .indicators-cta-btn:hover {
+            gap: 18px;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 32px rgba(245, 158, 11, 0.4), 0 2px 8px rgba(34, 197, 94, 0.3);
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        .indicators-cta-btn:hover::after {
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        .indicators-cta-btn:active {
+            transform: translateY(0);
+        }
+
+        [data-theme="light"] .indicators-cta-btn {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ── Indicators Nav Btn ────────────────────────────────── */
+        .indicators-nav-btn {
+            border-color: rgba(34, 197, 94, 0.35);
+            color: var(--ci-green-light);
+        }
+
+        .indicators-nav-btn:hover {
+            background: rgba(34, 197, 94, 0.18);
+            border-color: var(--ci-green);
+            color: var(--ci-green);
+        }
+
+        [data-theme="light"] .indicators-nav-btn {
+            color: var(--ci-green-dark);
         }
 
         /* ── Responsive ────────────────────────────────── */
         @media (max-width: 1024px) {
-            .portal-card { height: 400px; }
+            .portal-card {
+                height: 400px;
+            }
         }
+
         @media (max-width: 768px) {
-            .portal-card { height: 360px; }
-            .portal-card-year { font-size: 2.4rem; }
-            .portal-card-title { font-size: 1.1rem; }
+            .portal-card {
+                height: 360px;
+            }
+
+            .portal-card-year {
+                font-size: 2.4rem;
+            }
+
+            .portal-card-title {
+                font-size: 1.1rem;
+            }
         }
+
         @media (max-width: 480px) {
-            .portal-card { height: 320px; }
-            .portal-card-year { font-size: 2rem; }
-            .marquee-item { width: 120px; height: 120px; }
+            .portal-card {
+                height: 320px;
+            }
+
+            .portal-card-year {
+                font-size: 2rem;
+            }
+
+            .marquee-item {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
@@ -324,14 +659,25 @@
             <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
                 <!-- Brand -->
                 <div class="flex items-center gap-3 min-w-0">
-                    <img src="logo.jpg" alt="ตราสัญลักษณ์เทศบาลเมืองอุทัยธานี" class="h-9 rounded-lg flex-shrink-0" width="36" height="36">
+                    <div class="nav-logo-wrap">
+                        <img src="https://img2.pic.in.th/save-the-planet.png" alt="Green Destinations Foundation"
+                            class="nav-logo h-10 w-10 rounded-lg" width="40" height="40"
+                            onerror="this.onerror=null;this.src='logo.jpg'">
+                    </div>
                     <div class="min-w-0">
                         <div class="text-sm font-bold" style="color:var(--ci-green)">เทศบาลเมืองอุทัยธานี</div>
-                        <div class="text-xs hidden sm:block" style="color:var(--text-muted)" data-i18n="nav-sub">Green Destinations Hub</div>
+                        <div class="text-xs hidden sm:block" style="color:var(--text-muted)" data-i18n="nav-sub">Green
+                            Destinations Hub</div>
                     </div>
                 </div>
                 <!-- Controls -->
                 <div class="flex items-center gap-2 flex-shrink-0">
+                    <a href="https://84-indicators.vercel.app/" target="_blank" rel="noopener noreferrer"
+                        class="ctrl-btn indicators-nav-btn" aria-label="ระบบประเมินตัวชี้วัดเชิงพัฒนา 84 ตัวชี้วัด">
+                        <img src="https://img1.pic.in.th/images/check-list.png" alt="" aria-hidden="true" width="18"
+                            height="18" style="flex-shrink:0;object-fit:contain">
+                        <span class="hidden sm:inline" data-i18n="indicators-nav">84 ตัวชี้วัด</span>
+                    </a>
                     <button class="ctrl-btn" id="langBtn" aria-label="เปลี่ยนภาษา">
                         <span id="langIcon" aria-hidden="true">🇬🇧</span>
                         <span id="langLabel">EN</span>
@@ -350,54 +696,80 @@
 
                 <!-- Title block -->
                 <div class="text-center mb-6 fade-up" style="animation-delay:0s">
-                    <div class="award-badge mb-5 mx-auto w-fit" data-i18n="badge" role="note">🏆 Top 100 Green Destinations · การรับรองระดับโลก</div>
-                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-3">
+                    <div class="award-badge mb-5 mx-auto w-fit" data-i18n="badge" role="note">🏆 Top 100 Green
+                        Destinations · การรับรองระดับโลก</div>
+                    <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-tight mb-3"
+                        style="letter-spacing:-0.02em">
                         <span class="text-green" data-i18n="h1-line1">สถานที่ท่องเที่ยว</span><br>
                         <span class="text-gold" data-i18n="h1-line2">สีเขียวระดับโลก</span>
                     </h1>
-                    <p class="text-base md:text-lg font-light mt-3" style="color:var(--text-secondary)" data-i18n="hero-sub">
+                    <p class="text-base md:text-lg font-light mt-3" style="color:var(--text-secondary)"
+                        data-i18n="hero-sub">
                         เมืองเก่าอุทัยธานี · เทศบาลเมืองอุทัยธานี ประเทศไทย
                     </p>
                     <p class="text-sm mt-2 max-w-xl mx-auto" style="color:var(--text-muted)" data-i18n="hero-desc">
-                        ผลงานความสำเร็จด้านการพัฒนาอย่างยั่งยืน ได้รับการรับรองจาก Green Destinations Foundation ประเทศเนเธอร์แลนด์
+                        ผลงานความสำเร็จด้านการพัฒนาอย่างยั่งยืน ได้รับการรับรองจาก Green Destinations Foundation
+                        ประเทศเนเธอร์แลนด์
                     </p>
+                    <!-- Indicators Primary CTA -->
+                    <div class="flex justify-center mt-6 px-2">
+                        <a href="https://84-indicators.vercel.app/" target="_blank" rel="noopener noreferrer"
+                            class="indicators-cta-btn"
+                            aria-label="เข้าสู่ระบบประเมินตัวชี้วัดเชิงพัฒนา 84 ตัวชี้วัด เปิดในแท็บใหม่">
+                            <img src="https://img1.pic.in.th/images/check-list.png" alt="" aria-hidden="true" width="22"
+                                height="22" style="flex-shrink:0;object-fit:contain">
+                            <span data-i18n="indicators-cta">เข้าสู่ระบบประเมินตัวชี้วัดเชิงพัฒนา (84 ตัวชี้วัด)</span>
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Portal Cards (Horizontal Grid) -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 fade-up" style="animation-delay:0.2s">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 fade-up" style="animation-delay:0.2s">
 
                     <!-- Card 2024 -->
-                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
-                        <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024" class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
+                    <a href="https://uthai-top100greendes2024.netlify.app" target="_blank" rel="noopener noreferrer"
+                        class="portal-card glass" data-tilt
+                        aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2024">
+                        <img src="contents/2024.jpg" alt="อุทัยธานี Top 100 Green Destinations 2024"
+                            class="absolute inset-0 w-full h-full object-cover" loading="eager" decoding="async">
                         <div class="portal-card-content">
                             <div class="portal-card-year">2024</div>
                             <div class="portal-card-subtitle" data-i18n="c1-sub">Top 100 Green Destinations</div>
                             <div class="portal-card-title" data-i18n="c1-title">จุดเริ่มต้นแห่งเกียรติยศ</div>
-                            <div class="portal-card-desc" data-i18n="c1-desc">อุทัยธานีก้าวสู่เวทีโลกครั้งแรก ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล</div>
+                            <div class="portal-card-desc" data-i18n="c1-desc">อุทัยธานีก้าวสู่เวทีโลกครั้งแรก
+                                ด้วยมาตรฐานสิ่งแวดล้อมระดับสากล</div>
                             <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                         </div>
                     </a>
 
                     <!-- Card 2025/1 -->
-                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
-                        <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                    <a href="https://uthai-top100greendes2025.netlify.app" target="_blank" rel="noopener noreferrer"
+                        class="portal-card glass" data-tilt
+                        aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 1">
+                        <img src="contents/2025.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่หนึ่ง"
+                            class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="portal-card-content">
                             <div class="portal-card-year">2025<span style="font-size:1.6rem">/1</span></div>
                             <div class="portal-card-subtitle" data-i18n="c2-sub">Top 100 Green Destinations</div>
                             <div class="portal-card-title" data-i18n="c2-title">บทใหม่แห่งความยั่งยืน</div>
-                            <div class="portal-card-desc" data-i18n="c2-desc">ยกระดับมาตรฐานเมืองสีเขียว สืบสานความสำเร็จสู่ปีที่สอง</div>
+                            <div class="portal-card-desc" data-i18n="c2-desc">ยกระดับมาตรฐานเมืองสีเขียว
+                                สืบสานความสำเร็จสู่ปีที่สอง</div>
                             <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                         </div>
                     </a>
 
                     <!-- Card 2025/2 -->
-                    <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer" class="portal-card glass" data-tilt aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
-                        <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง" class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
+                    <a href="https://uthai-top100greendes2025-2.netlify.app/" target="_blank" rel="noopener noreferrer"
+                        class="portal-card glass" data-tilt
+                        aria-label="เยี่ยมชมผลงาน Top 100 Green Destinations ปี 2025 ชุดที่ 2">
+                        <img src="contents/D1.jpg" alt="อุทัยธานี Top 100 Green Destinations 2025 ชุดที่สอง"
+                            class="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async">
                         <div class="portal-card-content">
                             <div class="portal-card-year">2025<span style="font-size:1.6rem">/2</span></div>
                             <div class="portal-card-subtitle" data-i18n="c3-sub">Top 100 Green Destinations</div>
                             <div class="portal-card-title" data-i18n="c3-title">วิสัยทัศน์สู่อนาคต</div>
-                            <div class="portal-card-desc" data-i18n="c3-desc">ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ</div>
+                            <div class="portal-card-desc" data-i18n="c3-desc">ขับเคลื่อนชุมชนสีเขียวสู่อนาคตที่ยั่งยืน
+                                ด้วยพลังงานสะอาดและการท่องเที่ยวรับผิดชอบ</div>
                             <span class="portal-card-cta"><span data-i18n="cta">เยี่ยมชม</span> <span>→</span></span>
                         </div>
                     </a>
@@ -411,7 +783,7 @@
                             <span class="text-purple" data-i18n="gallery-title2"> · ร้านค้าและชุมชน</span>
                         </h2>
                     </div>
-                    
+
                     <div class="marquee-wrap">
                         <div class="marquee-track" id="mqTrack">
                             <!-- JS will inject duplicated items here for infinite scroll -->
@@ -421,12 +793,19 @@
 
                 <!-- Footer -->
                 <footer class="text-center mt-6 pb-6 fade-up" style="animation-delay:0.6s" role="contentinfo">
-                    <div class="flex items-center justify-center gap-3 mb-3">
-                        <img src="Award2024.jpg" alt="รางวัล Green Destinations 2024" class="h-10 rounded-lg opacity-90" loading="lazy" width="40" height="40">
-                        <img src="Award2025.jpg" alt="รางวัล Green Destinations 2025" class="h-10 rounded-lg opacity-90" loading="lazy" width="40" height="40">
+                    <div class="flex items-center justify-center gap-4 mb-3 flex-wrap">
+                        <img src="https://img2.pic.in.th/save-the-planet.png" alt="Green Destinations Foundation"
+                            class="rounded-lg opacity-90" loading="lazy" onerror="this.onerror=null;this.src='logo.jpg'"
+                            style="height:48px;width:auto;max-width:140px;object-fit:contain;filter:brightness(1.1) saturate(1.1)">
+                        <img src="Award2024.jpg" alt="รางวัล Green Destinations 2024" class="rounded-lg opacity-90"
+                            loading="lazy" style="height:56px;width:auto;max-width:160px;object-fit:contain">
+                        <img src="Award2025.jpg" alt="รางวัล Green Destinations 2025" class="rounded-lg opacity-90"
+                            loading="lazy" style="height:56px;width:auto;max-width:160px;object-fit:contain">
                     </div>
-                    <p class="text-xs" style="color:var(--text-muted)" data-i18n="footer1">ได้รับการรับรองจาก Green Destinations Foundation · ประเทศเนเธอร์แลนด์</p>
-                    <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="footer2">พัฒนาโดย เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality</p>
+                    <p class="text-xs" style="color:var(--text-muted)" data-i18n="footer1">ได้รับการรับรองจาก Green
+                        Destinations Foundation · ประเทศเนเธอร์แลนด์</p>
+                    <p class="text-xs mt-1" style="color:var(--text-muted)" data-i18n="footer2">พัฒนาโดย
+                        เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality</p>
                 </footer>
 
             </div>
@@ -460,6 +839,8 @@
                 'footer2': 'พัฒนาโดย เทศบาลเมืองอุทัยธานี · Uthai Thani Town Municipality',
                 'theme-light': 'สว่าง',
                 'theme-dark': 'มืด',
+                'indicators-nav': '84 ตัวชี้วัด',
+                'indicators-cta': 'เข้าสู่ระบบประเมินตัวชี้วัดเชิงพัฒนา (84 ตัวชี้วัด)',
             },
             en: {
                 'nav-sub': 'Green Destinations Hub',
@@ -485,6 +866,8 @@
                 'footer2': 'Developed by Uthai Thani Town Municipality',
                 'theme-light': 'Light',
                 'theme-dark': 'Dark',
+                'indicators-nav': '84 Indicators',
+                'indicators-cta': 'Access Sustainable Development Indicators (84 Indicators)',
             }
         };
 
@@ -572,9 +955,9 @@
         const cursorOutline = document.getElementById('cursorOutline');
         document.addEventListener('mousemove', e => {
             cursorDot.style.left = e.clientX - 4 + 'px';
-            cursorDot.style.top  = e.clientY - 4 + 'px';
+            cursorDot.style.top = e.clientY - 4 + 'px';
             cursorOutline.style.left = e.clientX - 15 + 'px';
-            cursorOutline.style.top  = e.clientY - 15 + 'px';
+            cursorOutline.style.top = e.clientY - 15 + 'px';
         });
         document.querySelectorAll('a, button').forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -603,23 +986,23 @@
 
         // ── Marquee Gallery ──────────────────────────────────
         const galleryImages = [
-            'sticker/533075.jpg', 'sticker/533077.jpg', 'sticker/533078.jpg', 
+            'sticker/533075.jpg', 'sticker/533077.jpg', 'sticker/533078.jpg',
             'sticker/533080.jpg', 'sticker/533081.jpg', 'sticker/533082.jpg', 'sticker/533083.jpg'
         ];
-        
+
         const track = document.getElementById('mqTrack');
-        
+
         function createMarqueeItems() {
             const itemsHTML = galleryImages.map((src, i) => `
-                <div class="marquee-item" data-img="${src}" tabindex="0" role="button" aria-label="ภาพเครือข่าย ${i+1}">
+                <div class="marquee-item" data-img="${src}" tabindex="0" role="button" aria-label="ภาพเครือข่าย ${i + 1}">
                     <img src="${src}" alt="Green Network" loading="lazy">
                     <span class="marquee-badge">ดูภาพใหญ่</span>
                 </div>
             `).join('');
-            
+
             // Duplicate 2 times for seamless infinite scroll
             track.innerHTML = itemsHTML + itemsHTML;
-            
+
             // Add click events
             document.querySelectorAll('.marquee-item').forEach(item => {
                 item.addEventListener('click', () => {
@@ -635,7 +1018,7 @@
                 });
             });
         }
-        
+
         createMarqueeItems();
 
         // Lightbox close
@@ -650,4 +1033,5 @@
         });
     </script>
 </body>
+
 </html>
